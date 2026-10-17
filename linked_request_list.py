@@ -22,12 +22,6 @@ class Node:
         self.request = request
         self.next = None
 
-class FakeRequest: #Temporary stand in
-    def __init__(self, request_id, priority, reported_time):
-        self.request_id = request_id
-        self.priority = priority
-        self.reported_time = reported_time
-
 class LinkedRequestList:
     def __init__(self):
         self.head = None
