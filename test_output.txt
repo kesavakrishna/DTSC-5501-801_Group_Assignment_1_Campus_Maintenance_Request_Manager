@@ -1,0 +1,1351 @@
+PS C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager> python -m unittest -v test_project
+test_empty (test_project.ArrayTests.test_empty) ... There aren't that many elements in the array!
+
+FAIL
+test_one_element (test_project.ArrayTests.test_one_element) ... ok
+test_two_elements (test_project.ArrayTests.test_two_elements) ... ok
+test_empty (test_project.LinkedTests.test_empty) ... ok
+test_one_element (test_project.LinkedTests.test_one_element) ... ok
+test_two_elements (test_project.LinkedTests.test_two_elements) ... ok
+
+======================================================================
+FAIL: test_empty (test_project.ArrayTests.test_empty)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line35, in test_empty
+    with self.assertRaises(IndexError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: IndexError not raised
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.004s
+
+FAILED (failures=1)
+
+PS C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager> python -m unittest -v test_project
+test_empty (test_project.ArrayTests.test_empty) ... There aren't that many elements in the array!
+
+FAIL
+test_insert_at_beginning (test_project.ArrayTests.test_insert_at_beginning) ... ok
+test_insert_at_end (test_project.ArrayTests.test_insert_at_end) ... ok
+test_insert_in_middle (test_project.ArrayTests.test_insert_in_middle) ... ok
+test_one_element (test_project.ArrayTests.test_one_element) ... ok
+test_push_and_append (test_project.ArrayTests.test_push_and_append) ... ok
+test_remove_at_beginning (test_project.ArrayTests.test_remove_at_beginning) ... That ID # was not found in the array!
+
+ERROR
+test_remove_at_end (test_project.ArrayTests.test_remove_at_end) ... That ID # was not found in the array!
+
+ERROR
+test_remove_in_middle (test_project.ArrayTests.test_remove_in_middle) ... That ID # was not found in the array!
+
+ERROR
+test_remove_only_element (test_project.ArrayTests.test_remove_only_element) ... That ID # was not found in the array!
+
+ERROR
+test_two_elements (test_project.ArrayTests.test_two_elements) ... ok
+test_empty (test_project.LinkedTests.test_empty) ... ok
+test_insert_at_beginning (test_project.LinkedTests.test_insert_at_beginning) ... ok
+test_insert_at_end (test_project.LinkedTests.test_insert_at_end) ... ok
+test_insert_in_middle (test_project.LinkedTests.test_insert_in_middle) ... ok
+test_one_element (test_project.LinkedTests.test_one_element) ... ok
+test_push_and_append (test_project.LinkedTests.test_push_and_append) ... ok
+test_remove_at_beginning (test_project.LinkedTests.test_remove_at_beginning) ... ok
+test_remove_at_end (test_project.LinkedTests.test_remove_at_end) ... ok
+test_remove_in_middle (test_project.LinkedTests.test_remove_in_middle) ... ok
+test_remove_only_element (test_project.LinkedTests.test_remove_only_element) ... ok
+test_two_elements (test_project.LinkedTests.test_two_elements) ... ok
+
+======================================================================
+ERROR: test_remove_at_beginning (test_project.ArrayTests.test_remove_at_beginning)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line74, in test_remove_at_beginning
+    self.assertEqual(removed.request_id, 1004)
+                     ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'request_id'
+
+======================================================================
+ERROR: test_remove_at_end (test_project.ArrayTests.test_remove_at_end)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line86, in test_remove_at_end
+    self.assertEqual(removed.request_id, 1019)
+                     ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'request_id'
+
+======================================================================
+ERROR: test_remove_in_middle (test_project.ArrayTests.test_remove_in_middle)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line80, in test_remove_in_middle
+    self.assertEqual(removed.request_id, 1019)
+                     ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'request_id'
+
+======================================================================
+ERROR: test_remove_only_element (test_project.ArrayTests.test_remove_only_element)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line92, in test_remove_only_element
+    self.assertEqual(removed.request_id, 1004)
+                     ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'request_id'
+
+======================================================================
+FAIL: test_empty (test_project.ArrayTests.test_empty)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line35, in test_empty
+    with self.assertRaises(IndexError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: IndexError not raised
+
+----------------------------------------------------------------------
+Ran 22 tests in 0.012s
+
+FAILED (failures=1, errors=4)
+
+PS C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager> python -m unittest -v test_project
+test_duplicate_id_rejected (test_project.ArrayTests.test_duplicate_id_rejected) ... FAIL
+test_empty (test_project.ArrayTests.test_empty) ... There aren't that many elements in the array!
+
+FAIL
+test_insert_at_beginning (test_project.ArrayTests.test_insert_at_beginning) ... ok
+test_insert_at_end (test_project.ArrayTests.test_insert_at_end) ... ok
+test_insert_in_middle (test_project.ArrayTests.test_insert_in_middle) ... ok
+test_negative_indexes (test_project.ArrayTests.test_negative_indexes) ... FAIL
+test_noninteger_indexes (test_project.ArrayTests.test_noninteger_indexes) ... That ID # was not found in the array!
+
+
+  test_noninteger_indexes (test_project.ArrayTests.test_noninteger_indexes) (index=1.0) ... FAIL
+That ID # was not found in the array!
+
+  test_noninteger_indexes (test_project.ArrayTests.test_noninteger_indexes) (index='1') ... FAIL
+That ID # was not found in the array!
+
+  test_noninteger_indexes (test_project.ArrayTests.test_noninteger_indexes) (index=None) ... FAIL
+  test_noninteger_indexes (test_project.ArrayTests.test_noninteger_indexes) (index=True) ... FAIL
+test_one_element (test_project.ArrayTests.test_one_element) ... ok
+test_out_of_range_indexes (test_project.ArrayTests.test_out_of_range_indexes) ... There aren't that many elements in the array!
+
+
+  test_out_of_range_indexes (test_project.ArrayTests.test_out_of_range_indexes) (index=3) ... FAIL
+There aren't that many elements in the array!
+
+  test_out_of_range_indexes (test_project.ArrayTests.test_out_of_range_indexes) (index=10) ... FAIL
+That's past the first open spot in the list. Choose a smaller index!
+
+test_out_of_range_indexes (test_project.ArrayTests.test_out_of_range_indexes) ... FAIL
+test_push_and_append (test_project.ArrayTests.test_push_and_append) ... ok
+test_remove_at_beginning (test_project.ArrayTests.test_remove_at_beginning) ... That ID # was not found in the array!
+
+ERROR
+test_remove_at_end (test_project.ArrayTests.test_remove_at_end) ... That ID # was not found in the array!
+
+ERROR
+test_remove_from_empty (test_project.ArrayTests.test_remove_from_empty) ... That ID # was not found in the array!
+
+FAIL
+test_remove_in_middle (test_project.ArrayTests.test_remove_in_middle) ... That ID # was not found in the array!
+
+ERROR
+test_remove_only_element (test_project.ArrayTests.test_remove_only_element) ... That ID # was not found in the array!
+
+ERROR
+test_two_elements (test_project.ArrayTests.test_two_elements) ... ok
+test_duplicate_id_rejected (test_project.LinkedTests.test_duplicate_id_rejected) ... ok
+test_empty (test_project.LinkedTests.test_empty) ... ok
+test_insert_at_beginning (test_project.LinkedTests.test_insert_at_beginning) ... ok
+test_insert_at_end (test_project.LinkedTests.test_insert_at_end) ... ok
+test_insert_in_middle (test_project.LinkedTests.test_insert_in_middle) ... ok
+test_negative_indexes (test_project.LinkedTests.test_negative_indexes) ... ok
+test_noninteger_indexes (test_project.LinkedTests.test_noninteger_indexes) ... 
+  test_noninteger_indexes (test_project.LinkedTests.test_noninteger_indexes) (index=True) ... FAIL
+test_one_element (test_project.LinkedTests.test_one_element) ... ok
+test_out_of_range_indexes (test_project.LinkedTests.test_out_of_range_indexes) ... ok
+test_push_and_append (test_project.LinkedTests.test_push_and_append) ... ok
+test_remove_at_beginning (test_project.LinkedTests.test_remove_at_beginning) ... ok
+test_remove_at_end (test_project.LinkedTests.test_remove_at_end) ... ok
+test_remove_from_empty (test_project.LinkedTests.test_remove_from_empty) ... ok
+test_remove_in_middle (test_project.LinkedTests.test_remove_in_middle) ... ok
+test_remove_only_element (test_project.LinkedTests.test_remove_only_element) ... ok
+test_two_elements (test_project.LinkedTests.test_two_elements) ... ok
+
+======================================================================
+ERROR: test_remove_at_beginning (test_project.ArrayTests.test_remove_at_beginning)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line74, in test_remove_at_beginning
+    self.assertEqual(removed.request_id, 1004)
+                     ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'request_id'
+
+======================================================================
+ERROR: test_remove_at_end (test_project.ArrayTests.test_remove_at_end)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line86, in test_remove_at_end
+    self.assertEqual(removed.request_id, 1019)
+                     ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'request_id'
+
+======================================================================
+ERROR: test_remove_in_middle (test_project.ArrayTests.test_remove_in_middle)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line80, in test_remove_in_middle
+    self.assertEqual(removed.request_id, 1019)
+                     ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'request_id'
+
+======================================================================
+ERROR: test_remove_only_element (test_project.ArrayTests.test_remove_only_element)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line92, in test_remove_only_element
+    self.assertEqual(removed.request_id, 1004)
+                     ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'request_id'
+
+======================================================================
+FAIL: test_duplicate_id_rejected (test_project.ArrayTests.test_duplicate_id_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line100, in test_duplicate_id_rejected
+    with self.assertRaises(ValueError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_empty (test_project.ArrayTests.test_empty)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line35, in test_empty
+    with self.assertRaises(IndexError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: IndexError not raised
+
+======================================================================
+FAIL: test_negative_indexes (test_project.ArrayTests.test_negative_indexes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line127, in test_negative_indexes
+    with self.assertRaises(IndexError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: IndexError not raised
+
+======================================================================
+FAIL: test_noninteger_indexes (test_project.ArrayTests.test_noninteger_indexes) (index=1.0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line141, in test_noninteger_indexes
+    with self.assertRaises(TypeError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+AssertionError: TypeError not raised
+
+======================================================================
+FAIL: test_noninteger_indexes (test_project.ArrayTests.test_noninteger_indexes) (index='1')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line141, in test_noninteger_indexes
+    with self.assertRaises(TypeError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+AssertionError: TypeError not raised
+
+======================================================================
+FAIL: test_noninteger_indexes (test_project.ArrayTests.test_noninteger_indexes) (index=None)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line141, in test_noninteger_indexes
+    with self.assertRaises(TypeError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+AssertionError: TypeError not raised
+
+======================================================================
+FAIL: test_noninteger_indexes (test_project.ArrayTests.test_noninteger_indexes) (index=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line139, in test_noninteger_indexes
+    with self.assertRaises(TypeError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+AssertionError: TypeError not raised
+
+======================================================================
+FAIL: test_out_of_range_indexes (test_project.ArrayTests.test_out_of_range_indexes) (index=3)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line117, in test_out_of_range_indexes
+    with self.assertRaises(IndexError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: IndexError not raised
+
+======================================================================
+FAIL: test_out_of_range_indexes (test_project.ArrayTests.test_out_of_range_indexes) (index=10)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line117, in test_out_of_range_indexes
+    with self.assertRaises(IndexError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: IndexError not raised
+
+======================================================================
+FAIL: test_out_of_range_indexes (test_project.ArrayTests.test_out_of_range_indexes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line121, in test_out_of_range_indexes
+    with self.assertRaises(IndexError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: IndexError not raised
+
+======================================================================
+FAIL: test_remove_from_empty (test_project.ArrayTests.test_remove_from_empty)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line110, in test_remove_from_empty
+    with self.assertRaises(IndexError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: IndexError not raised
+
+======================================================================
+FAIL: test_noninteger_indexes (test_project.LinkedTests.test_noninteger_indexes) (index=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line139, in test_noninteger_indexes
+    with self.assertRaises(TypeError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+AssertionError: TypeError not raised
+
+----------------------------------------------------------------------
+Ran 32 tests in 0.027s
+
+FAILED (failures=12, errors=4)
+
+PS C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager> python -m unittest -v test_project
+test_duplicate_id_rejected (test_project.ArrayTests.test_duplicate_id_rejected) ... FAIL
+test_empty (test_project.ArrayTests.test_empty) ... There aren't that many elements in the array!
+
+FAIL
+test_insert_at_beginning (test_project.ArrayTests.test_insert_at_beginning) ... ok
+test_insert_at_end (test_project.ArrayTests.test_insert_at_end) ... ok
+test_insert_in_middle (test_project.ArrayTests.test_insert_in_middle) ... ok
+test_methods_do_not_print (test_project.ArrayTests.test_methods_do_not_print) ... ERROR
+test_multiple_elements (test_project.ArrayTests.test_multiple_elements) ... ok
+test_negative_indexes (test_project.ArrayTests.test_negative_indexes) ... FAIL
+test_noninteger_indexes (test_project.ArrayTests.test_noninteger_indexes) ... That ID # was not found in the array!
+
+
+  test_noninteger_indexes (test_project.ArrayTests.test_noninteger_indexes) (index=1.0) ... FAIL
+That ID # was not found in the array!
+
+  test_noninteger_indexes (test_project.ArrayTests.test_noninteger_indexes) (index='1') ... FAIL
+That ID # was not found in the array!
+
+  test_noninteger_indexes (test_project.ArrayTests.test_noninteger_indexes) (index=None) ... FAIL
+  test_noninteger_indexes (test_project.ArrayTests.test_noninteger_indexes) (index=True) ... FAIL
+test_one_element (test_project.ArrayTests.test_one_element) ... ok
+test_out_of_range_indexes (test_project.ArrayTests.test_out_of_range_indexes) ... There aren't that many elements in the array!
+
+
+  test_out_of_range_indexes (test_project.ArrayTests.test_out_of_range_indexes) (index=3) ... FAIL
+There aren't that many elements in the array!
+
+  test_out_of_range_indexes (test_project.ArrayTests.test_out_of_range_indexes) (index=10) ... FAIL
+That's past the first open spot in the list. Choose a smaller index!
+
+test_out_of_range_indexes (test_project.ArrayTests.test_out_of_range_indexes) ... FAIL
+test_push_and_append (test_project.ArrayTests.test_push_and_append) ... ok
+test_remove_at_beginning (test_project.ArrayTests.test_remove_at_beginning) ... That ID # was not found in the array!
+
+ERROR
+test_remove_at_end (test_project.ArrayTests.test_remove_at_end) ... That ID # was not found in the array!
+
+ERROR
+test_remove_from_empty (test_project.ArrayTests.test_remove_from_empty) ... That ID # was not found in the array!
+
+FAIL
+test_remove_in_middle (test_project.ArrayTests.test_remove_in_middle) ... That ID # was not found in the array!
+
+ERROR
+test_remove_only_element (test_project.ArrayTests.test_remove_only_element) ... That ID # was not found in the array!
+
+ERROR
+test_search_empty (test_project.ArrayTests.test_search_empty) ... The array is empty!
+
+ok
+test_successful_search (test_project.ArrayTests.test_successful_search) ... ok
+test_two_elements (test_project.ArrayTests.test_two_elements) ... ok
+test_unsuccessful_search (test_project.ArrayTests.test_unsuccessful_search) ... That ID # was not found in the array!
+
+That ID # was not found in the array!
+
+That ID # was not found in the array!
+
+That ID # was not found in the array!
+
+ok
+test_duplicate_id_rejected (test_project.LinkedTests.test_duplicate_id_rejected) ... ok
+test_empty (test_project.LinkedTests.test_empty) ... ok
+test_insert_at_beginning (test_project.LinkedTests.test_insert_at_beginning) ... ok
+test_insert_at_end (test_project.LinkedTests.test_insert_at_end) ... ok
+test_insert_in_middle (test_project.LinkedTests.test_insert_in_middle) ... ok
+test_methods_do_not_print (test_project.LinkedTests.test_methods_do_not_print) ... ERROR
+test_multiple_elements (test_project.LinkedTests.test_multiple_elements) ... ok
+test_negative_indexes (test_project.LinkedTests.test_negative_indexes) ... ok
+test_noninteger_indexes (test_project.LinkedTests.test_noninteger_indexes) ... 
+  test_noninteger_indexes (test_project.LinkedTests.test_noninteger_indexes) (index=True) ... FAIL
+test_one_element (test_project.LinkedTests.test_one_element) ... ok
+test_out_of_range_indexes (test_project.LinkedTests.test_out_of_range_indexes) ... ok
+test_push_and_append (test_project.LinkedTests.test_push_and_append) ... ok
+test_remove_at_beginning (test_project.LinkedTests.test_remove_at_beginning) ... ok
+test_remove_at_end (test_project.LinkedTests.test_remove_at_end) ... ok
+test_remove_from_empty (test_project.LinkedTests.test_remove_from_empty) ... ok
+test_remove_in_middle (test_project.LinkedTests.test_remove_in_middle) ... ok
+test_remove_only_element (test_project.LinkedTests.test_remove_only_element) ... ok
+test_search_empty (test_project.LinkedTests.test_search_empty) ... ok
+test_successful_search (test_project.LinkedTests.test_successful_search) ... ok
+test_two_elements (test_project.LinkedTests.test_two_elements) ... ok
+test_unsuccessful_search (test_project.LinkedTests.test_unsuccessful_search) ... ok
+
+======================================================================
+ERROR: test_methods_do_not_print (test_project.ArrayTests.test_methods_do_not_print)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line173, in test_methods_do_not_print
+    output = io.StringIO()
+             ^^
+NameError: name 'io' is not defined. Did you forget to import 'io'?
+
+======================================================================
+ERROR: test_remove_at_beginning (test_project.ArrayTests.test_remove_at_beginning)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line74, in test_remove_at_beginning
+    self.assertEqual(removed.request_id, 1004)
+                     ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'request_id'
+
+======================================================================
+ERROR: test_remove_at_end (test_project.ArrayTests.test_remove_at_end)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line86, in test_remove_at_end
+    self.assertEqual(removed.request_id, 1019)
+                     ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'request_id'
+
+======================================================================
+ERROR: test_remove_in_middle (test_project.ArrayTests.test_remove_in_middle)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line80, in test_remove_in_middle
+    self.assertEqual(removed.request_id, 1019)
+                     ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'request_id'
+
+======================================================================
+ERROR: test_remove_only_element (test_project.ArrayTests.test_remove_only_element)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line92, in test_remove_only_element
+    self.assertEqual(removed.request_id, 1004)
+                     ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'request_id'
+
+======================================================================
+ERROR: test_methods_do_not_print (test_project.LinkedTests.test_methods_do_not_print)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line173, in test_methods_do_not_print
+    output = io.StringIO()
+             ^^
+NameError: name 'io' is not defined. Did you forget to import 'io'?
+
+======================================================================
+FAIL: test_duplicate_id_rejected (test_project.ArrayTests.test_duplicate_id_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line100, in test_duplicate_id_rejected
+    with self.assertRaises(ValueError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_empty (test_project.ArrayTests.test_empty)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line35, in test_empty
+    with self.assertRaises(IndexError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: IndexError not raised
+
+======================================================================
+FAIL: test_negative_indexes (test_project.ArrayTests.test_negative_indexes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line127, in test_negative_indexes
+    with self.assertRaises(IndexError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: IndexError not raised
+
+======================================================================
+FAIL: test_noninteger_indexes (test_project.ArrayTests.test_noninteger_indexes) (index=1.0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line141, in test_noninteger_indexes
+    with self.assertRaises(TypeError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+AssertionError: TypeError not raised
+
+======================================================================
+FAIL: test_noninteger_indexes (test_project.ArrayTests.test_noninteger_indexes) (index='1')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line141, in test_noninteger_indexes
+    with self.assertRaises(TypeError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+AssertionError: TypeError not raised
+
+======================================================================
+FAIL: test_noninteger_indexes (test_project.ArrayTests.test_noninteger_indexes) (index=None)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line141, in test_noninteger_indexes
+    with self.assertRaises(TypeError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+AssertionError: TypeError not raised
+
+======================================================================
+FAIL: test_noninteger_indexes (test_project.ArrayTests.test_noninteger_indexes) (index=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line139, in test_noninteger_indexes
+    with self.assertRaises(TypeError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+AssertionError: TypeError not raised
+
+======================================================================
+FAIL: test_out_of_range_indexes (test_project.ArrayTests.test_out_of_range_indexes) (index=3)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line117, in test_out_of_range_indexes
+    with self.assertRaises(IndexError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: IndexError not raised
+
+======================================================================
+FAIL: test_out_of_range_indexes (test_project.ArrayTests.test_out_of_range_indexes) (index=10)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line117, in test_out_of_range_indexes
+    with self.assertRaises(IndexError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: IndexError not raised
+
+======================================================================
+FAIL: test_out_of_range_indexes (test_project.ArrayTests.test_out_of_range_indexes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line121, in test_out_of_range_indexes
+    with self.assertRaises(IndexError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: IndexError not raised
+
+======================================================================
+FAIL: test_remove_from_empty (test_project.ArrayTests.test_remove_from_empty)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line110, in test_remove_from_empty
+    with self.assertRaises(IndexError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: IndexError not raised
+
+======================================================================
+FAIL: test_noninteger_indexes (test_project.LinkedTests.test_noninteger_indexes) (index=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line139, in test_noninteger_indexes
+    with self.assertRaises(TypeError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+AssertionError: TypeError not raised
+
+----------------------------------------------------------------------
+Ran 42 tests in 0.033s
+
+FAILED (failures=12, errors=6)
+
+PS C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager> python -m unittest -v test_project
+test_duplicate_id_rejected (test_project.ArrayTests.test_duplicate_id_rejected) ... FAIL
+test_empty (test_project.ArrayTests.test_empty) ... There aren't that many elements in the array!
+
+FAIL
+test_insert_at_beginning (test_project.ArrayTests.test_insert_at_beginning) ... ok
+test_insert_at_end (test_project.ArrayTests.test_insert_at_end) ... ok
+test_insert_in_middle (test_project.ArrayTests.test_insert_in_middle) ... ok
+test_methods_do_not_print (test_project.ArrayTests.test_methods_do_not_print) ... FAIL
+test_multiple_elements (test_project.ArrayTests.test_multiple_elements) ... ok
+test_negative_indexes (test_project.ArrayTests.test_negative_indexes) ... FAIL
+test_noninteger_indexes (test_project.ArrayTests.test_noninteger_indexes) ... That ID # was not found in the array!
+
+
+  test_noninteger_indexes (test_project.ArrayTests.test_noninteger_indexes) (index=1.0) ... FAIL
+That ID # was not found in the array!
+
+  test_noninteger_indexes (test_project.ArrayTests.test_noninteger_indexes) (index='1') ... FAIL
+That ID # was not found in the array!
+
+  test_noninteger_indexes (test_project.ArrayTests.test_noninteger_indexes) (index=None) ... FAIL
+  test_noninteger_indexes (test_project.ArrayTests.test_noninteger_indexes) (index=True) ... FAIL
+test_one_element (test_project.ArrayTests.test_one_element) ... ok
+test_out_of_range_indexes (test_project.ArrayTests.test_out_of_range_indexes) ... There aren't that many elements in the array!
+
+
+  test_out_of_range_indexes (test_project.ArrayTests.test_out_of_range_indexes) (index=3) ... FAIL
+There aren't that many elements in the array!
+
+  test_out_of_range_indexes (test_project.ArrayTests.test_out_of_range_indexes) (index=10) ... FAIL
+That's past the first open spot in the list. Choose a smaller index!
+
+test_out_of_range_indexes (test_project.ArrayTests.test_out_of_range_indexes) ... FAIL
+test_push_and_append (test_project.ArrayTests.test_push_and_append) ... ok
+test_remove_at_beginning (test_project.ArrayTests.test_remove_at_beginning) ... That ID # was not found in the array!
+
+ERROR
+test_remove_at_end (test_project.ArrayTests.test_remove_at_end) ... That ID # was not found in the array!
+
+ERROR
+test_remove_from_empty (test_project.ArrayTests.test_remove_from_empty) ... That ID # was not found in the array!
+
+FAIL
+test_remove_in_middle (test_project.ArrayTests.test_remove_in_middle) ... That ID # was not found in the array!
+
+ERROR
+test_remove_only_element (test_project.ArrayTests.test_remove_only_element) ... That ID # was not found in the array!
+
+ERROR
+test_search_empty (test_project.ArrayTests.test_search_empty) ... The array is empty!
+
+ok
+test_successful_search (test_project.ArrayTests.test_successful_search) ... ok
+test_two_elements (test_project.ArrayTests.test_two_elements) ... ok
+test_unsuccessful_search (test_project.ArrayTests.test_unsuccessful_search) ... That ID # was not found in the array!
+
+That ID # was not found in the array!
+
+That ID # was not found in the array!
+
+That ID # was not found in the array!
+
+ok
+test_duplicate_id_rejected (test_project.LinkedTests.test_duplicate_id_rejected) ... ok
+test_empty (test_project.LinkedTests.test_empty) ... ok
+test_insert_at_beginning (test_project.LinkedTests.test_insert_at_beginning) ... ok
+test_insert_at_end (test_project.LinkedTests.test_insert_at_end) ... ok
+test_insert_in_middle (test_project.LinkedTests.test_insert_in_middle) ... ok
+test_methods_do_not_print (test_project.LinkedTests.test_methods_do_not_print) ... ok
+test_multiple_elements (test_project.LinkedTests.test_multiple_elements) ... ok
+test_negative_indexes (test_project.LinkedTests.test_negative_indexes) ... ok
+test_noninteger_indexes (test_project.LinkedTests.test_noninteger_indexes) ... 
+  test_noninteger_indexes (test_project.LinkedTests.test_noninteger_indexes) (index=True) ... FAIL
+test_one_element (test_project.LinkedTests.test_one_element) ... ok
+test_out_of_range_indexes (test_project.LinkedTests.test_out_of_range_indexes) ... ok
+test_push_and_append (test_project.LinkedTests.test_push_and_append) ... ok
+test_remove_at_beginning (test_project.LinkedTests.test_remove_at_beginning) ... ok
+test_remove_at_end (test_project.LinkedTests.test_remove_at_end) ... ok
+test_remove_from_empty (test_project.LinkedTests.test_remove_from_empty) ... ok
+test_remove_in_middle (test_project.LinkedTests.test_remove_in_middle) ... ok
+test_remove_only_element (test_project.LinkedTests.test_remove_only_element) ... ok
+test_search_empty (test_project.LinkedTests.test_search_empty) ... ok
+test_successful_search (test_project.LinkedTests.test_successful_search) ... ok
+test_two_elements (test_project.LinkedTests.test_two_elements) ... ok
+test_unsuccessful_search (test_project.LinkedTests.test_unsuccessful_search) ... ok
+
+======================================================================
+ERROR: test_remove_at_beginning (test_project.ArrayTests.test_remove_at_beginning)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line75, in test_remove_at_beginning
+    self.assertEqual(removed.request_id, 1004)
+                     ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'request_id'
+
+======================================================================
+ERROR: test_remove_at_end (test_project.ArrayTests.test_remove_at_end)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line87, in test_remove_at_end
+    self.assertEqual(removed.request_id, 1019)
+                     ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'request_id'
+
+======================================================================
+ERROR: test_remove_in_middle (test_project.ArrayTests.test_remove_in_middle)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line81, in test_remove_in_middle
+    self.assertEqual(removed.request_id, 1019)
+                     ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'request_id'
+
+======================================================================
+ERROR: test_remove_only_element (test_project.ArrayTests.test_remove_only_element)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line93, in test_remove_only_element
+    self.assertEqual(removed.request_id, 1004)
+                     ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'request_id'
+
+======================================================================
+FAIL: test_duplicate_id_rejected (test_project.ArrayTests.test_duplicate_id_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line101, in test_duplicate_id_rejected
+    with self.assertRaises(ValueError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_empty (test_project.ArrayTests.test_empty)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line36, in test_empty
+    with self.assertRaises(IndexError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: IndexError not raised
+
+======================================================================
+FAIL: test_methods_do_not_print (test_project.ArrayTests.test_methods_do_not_print)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line186, in test_methods_do_not_print
+    self.assertEqual(output.getvalue(), "")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'That ID # was not found in the array!\n\n[37 chars]\n\n' != ''
+- That ID # was not found in the array!
+- 
+- That ID # was not found in the array!
+- 
+
+
+======================================================================
+FAIL: test_negative_indexes (test_project.ArrayTests.test_negative_indexes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line128, in test_negative_indexes
+    with self.assertRaises(IndexError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: IndexError not raised
+
+======================================================================
+FAIL: test_noninteger_indexes (test_project.ArrayTests.test_noninteger_indexes) (index=1.0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line142, in test_noninteger_indexes
+    with self.assertRaises(TypeError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+AssertionError: TypeError not raised
+
+======================================================================
+FAIL: test_noninteger_indexes (test_project.ArrayTests.test_noninteger_indexes) (index='1')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line142, in test_noninteger_indexes
+    with self.assertRaises(TypeError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+AssertionError: TypeError not raised
+
+======================================================================
+FAIL: test_noninteger_indexes (test_project.ArrayTests.test_noninteger_indexes) (index=None)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line142, in test_noninteger_indexes
+    with self.assertRaises(TypeError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+AssertionError: TypeError not raised
+
+======================================================================
+FAIL: test_noninteger_indexes (test_project.ArrayTests.test_noninteger_indexes) (index=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line140, in test_noninteger_indexes
+    with self.assertRaises(TypeError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+AssertionError: TypeError not raised
+
+======================================================================
+FAIL: test_out_of_range_indexes (test_project.ArrayTests.test_out_of_range_indexes) (index=3)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line118, in test_out_of_range_indexes
+    with self.assertRaises(IndexError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: IndexError not raised
+
+======================================================================
+FAIL: test_out_of_range_indexes (test_project.ArrayTests.test_out_of_range_indexes) (index=10)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line118, in test_out_of_range_indexes
+    with self.assertRaises(IndexError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: IndexError not raised
+
+======================================================================
+FAIL: test_out_of_range_indexes (test_project.ArrayTests.test_out_of_range_indexes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line122, in test_out_of_range_indexes
+    with self.assertRaises(IndexError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: IndexError not raised
+
+======================================================================
+FAIL: test_remove_from_empty (test_project.ArrayTests.test_remove_from_empty)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line111, in test_remove_from_empty
+    with self.assertRaises(IndexError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: IndexError not raised
+
+======================================================================
+FAIL: test_noninteger_indexes (test_project.LinkedTests.test_noninteger_indexes) (index=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line140, in test_noninteger_indexes
+    with self.assertRaises(TypeError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+AssertionError: TypeError not raised
+
+----------------------------------------------------------------------
+Ran 42 tests in 0.070s
+
+FAILED (failures=13, errors=4)
+
+PS C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager> python -m unittest -v test_project
+test_duplicate_id_rejected (test_project.ArrayTests.test_duplicate_id_rejected) ... FAIL
+test_empty (test_project.ArrayTests.test_empty) ... There aren't that many elements in the array!
+
+FAIL
+test_growth_doubles_and_keeps_order (test_project.ArrayTests.test_growth_doubles_and_keeps_order) ... ok
+test_insert_at_beginning (test_project.ArrayTests.test_insert_at_beginning) ... ok
+test_insert_at_end (test_project.ArrayTests.test_insert_at_end) ... ok
+test_insert_in_middle (test_project.ArrayTests.test_insert_in_middle) ... ok
+test_insert_in_middle_when_full (test_project.ArrayTests.test_insert_in_middle_when_full) ... ok
+test_methods_do_not_print (test_project.ArrayTests.test_methods_do_not_print) ... FAIL
+test_multiple_elements (test_project.ArrayTests.test_multiple_elements) ... ok
+test_negative_indexes (test_project.ArrayTests.test_negative_indexes) ... FAIL
+test_noninteger_indexes (test_project.ArrayTests.test_noninteger_indexes) ... That ID # was not found in the array!
+
+
+  test_noninteger_indexes (test_project.ArrayTests.test_noninteger_indexes) (index=1.0) ... FAIL
+That ID # was not found in the array!
+
+  test_noninteger_indexes (test_project.ArrayTests.test_noninteger_indexes) (index='1') ... FAIL
+That ID # was not found in the array!
+
+  test_noninteger_indexes (test_project.ArrayTests.test_noninteger_indexes) (index=None) ... FAIL
+  test_noninteger_indexes (test_project.ArrayTests.test_noninteger_indexes) (index=True) ... FAIL
+test_one_element (test_project.ArrayTests.test_one_element) ... ok
+test_out_of_range_indexes (test_project.ArrayTests.test_out_of_range_indexes) ... There aren't that many elements in the array!
+
+
+  test_out_of_range_indexes (test_project.ArrayTests.test_out_of_range_indexes) (index=3) ... FAIL
+There aren't that many elements in the array!
+
+  test_out_of_range_indexes (test_project.ArrayTests.test_out_of_range_indexes) (index=10) ... FAIL
+That's past the first open spot in the list. Choose a smaller index!
+
+test_out_of_range_indexes (test_project.ArrayTests.test_out_of_range_indexes) ... FAIL
+test_push_and_append (test_project.ArrayTests.test_push_and_append) ... ok
+test_push_when_full (test_project.ArrayTests.test_push_when_full) ... ok
+test_remove_at_beginning (test_project.ArrayTests.test_remove_at_beginning) ... That ID # was not found in the array!
+
+ERROR
+test_remove_at_end (test_project.ArrayTests.test_remove_at_end) ... That ID # was not found in the array!
+
+ERROR
+test_remove_from_empty (test_project.ArrayTests.test_remove_from_empty) ... That ID # was not found in the array!
+
+FAIL
+test_remove_in_middle (test_project.ArrayTests.test_remove_in_middle) ... That ID # was not found in the array!
+
+ERROR
+test_remove_only_element (test_project.ArrayTests.test_remove_only_element) ... That ID # was not found in the array!
+
+ERROR
+test_search_empty (test_project.ArrayTests.test_search_empty) ... The array is empty!
+
+ok
+test_shrink_after_removal_keeps_contents (test_project.ArrayTests.test_shrink_after_removal_keeps_contents) ... ERROR
+test_successful_search (test_project.ArrayTests.test_successful_search) ... ok
+test_two_elements (test_project.ArrayTests.test_two_elements) ... ok
+test_unsuccessful_search (test_project.ArrayTests.test_unsuccessful_search) ... That ID # was not found in the array!
+
+That ID # was not found in the array!
+
+That ID # was not found in the array!
+
+That ID # was not found in the array!
+
+ok
+test_duplicate_id_rejected (test_project.LinkedTests.test_duplicate_id_rejected) ... ok
+test_empty (test_project.LinkedTests.test_empty) ... ok
+test_insert_at_beginning (test_project.LinkedTests.test_insert_at_beginning) ... ok
+test_insert_at_end (test_project.LinkedTests.test_insert_at_end) ... ok
+test_insert_in_middle (test_project.LinkedTests.test_insert_in_middle) ... ok
+test_methods_do_not_print (test_project.LinkedTests.test_methods_do_not_print) ... ok
+test_multiple_elements (test_project.LinkedTests.test_multiple_elements) ... ok
+test_negative_indexes (test_project.LinkedTests.test_negative_indexes) ... ok
+test_noninteger_indexes (test_project.LinkedTests.test_noninteger_indexes) ... 
+  test_noninteger_indexes (test_project.LinkedTests.test_noninteger_indexes) (index=True) ... FAIL
+test_one_element (test_project.LinkedTests.test_one_element) ... ok
+test_out_of_range_indexes (test_project.LinkedTests.test_out_of_range_indexes) ... ok
+test_push_and_append (test_project.LinkedTests.test_push_and_append) ... ok
+test_remove_at_beginning (test_project.LinkedTests.test_remove_at_beginning) ... ok
+test_remove_at_end (test_project.LinkedTests.test_remove_at_end) ... ok
+test_remove_from_empty (test_project.LinkedTests.test_remove_from_empty) ... ok
+test_remove_in_middle (test_project.LinkedTests.test_remove_in_middle) ... ok
+test_remove_only_element (test_project.LinkedTests.test_remove_only_element) ... ok
+test_search_empty (test_project.LinkedTests.test_search_empty) ... ok
+test_successful_search (test_project.LinkedTests.test_successful_search) ... ok
+test_two_elements (test_project.LinkedTests.test_two_elements) ... ok
+test_unsuccessful_search (test_project.LinkedTests.test_unsuccessful_search) ... ok
+
+======================================================================
+ERROR: test_remove_at_beginning (test_project.ArrayTests.test_remove_at_beginning)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line75, in test_remove_at_beginning
+    self.assertEqual(removed.request_id, 1004)
+                     ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'request_id'
+
+======================================================================
+ERROR: test_remove_at_end (test_project.ArrayTests.test_remove_at_end)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line87, in test_remove_at_end
+    self.assertEqual(removed.request_id, 1019)
+                     ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'request_id'
+
+======================================================================
+ERROR: test_remove_in_middle (test_project.ArrayTests.test_remove_in_middle)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line81, in test_remove_in_middle
+    self.assertEqual(removed.request_id, 1019)
+                     ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'request_id'
+
+======================================================================
+ERROR: test_remove_only_element (test_project.ArrayTests.test_remove_only_element)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line93, in test_remove_only_element
+    self.assertEqual(removed.request_id, 1004)
+                     ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'request_id'
+
+======================================================================
+ERROR: test_shrink_after_removal_keeps_contents (test_project.ArrayTests.test_shrink_after_removal_keeps_contents)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line230, in test_shrink_after_removal_keeps_contents
+    self.assertEqual(removed.request_id, 1000)
+                     ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'request_id'
+
+======================================================================
+FAIL: test_duplicate_id_rejected (test_project.ArrayTests.test_duplicate_id_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line101, in test_duplicate_id_rejected
+    with self.assertRaises(ValueError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_empty (test_project.ArrayTests.test_empty)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line36, in test_empty
+    with self.assertRaises(IndexError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: IndexError not raised
+
+======================================================================
+FAIL: test_methods_do_not_print (test_project.ArrayTests.test_methods_do_not_print)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line186, in test_methods_do_not_print
+    self.assertEqual(output.getvalue(), "")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'That ID # was not found in the array!\n\n[37 chars]\n\n' != ''
+- That ID # was not found in the array!
+- 
+- That ID # was not found in the array!
+- 
+
+
+======================================================================
+FAIL: test_negative_indexes (test_project.ArrayTests.test_negative_indexes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line128, in test_negative_indexes
+    with self.assertRaises(IndexError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: IndexError not raised
+
+======================================================================
+FAIL: test_noninteger_indexes (test_project.ArrayTests.test_noninteger_indexes) (index=1.0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line142, in test_noninteger_indexes
+    with self.assertRaises(TypeError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+AssertionError: TypeError not raised
+
+======================================================================
+FAIL: test_noninteger_indexes (test_project.ArrayTests.test_noninteger_indexes) (index='1')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line142, in test_noninteger_indexes
+    with self.assertRaises(TypeError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+AssertionError: TypeError not raised
+
+======================================================================
+FAIL: test_noninteger_indexes (test_project.ArrayTests.test_noninteger_indexes) (index=None)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line142, in test_noninteger_indexes
+    with self.assertRaises(TypeError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+AssertionError: TypeError not raised
+
+======================================================================
+FAIL: test_noninteger_indexes (test_project.ArrayTests.test_noninteger_indexes) (index=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line140, in test_noninteger_indexes
+    with self.assertRaises(TypeError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+AssertionError: TypeError not raised
+
+======================================================================
+FAIL: test_out_of_range_indexes (test_project.ArrayTests.test_out_of_range_indexes) (index=3)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line118, in test_out_of_range_indexes
+    with self.assertRaises(IndexError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: IndexError not raised
+
+======================================================================
+FAIL: test_out_of_range_indexes (test_project.ArrayTests.test_out_of_range_indexes) (index=10)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line118, in test_out_of_range_indexes
+    with self.assertRaises(IndexError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: IndexError not raised
+
+======================================================================
+FAIL: test_out_of_range_indexes (test_project.ArrayTests.test_out_of_range_indexes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line122, in test_out_of_range_indexes
+    with self.assertRaises(IndexError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: IndexError not raised
+
+======================================================================
+FAIL: test_remove_from_empty (test_project.ArrayTests.test_remove_from_empty)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line111, in test_remove_from_empty
+    with self.assertRaises(IndexError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: IndexError not raised
+
+======================================================================
+FAIL: test_noninteger_indexes (test_project.LinkedTests.test_noninteger_indexes) (index=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line140, in test_noninteger_indexes
+    with self.assertRaises(TypeError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+AssertionError: TypeError not raised
+
+----------------------------------------------------------------------
+Ran 46 tests in 0.032s
+
+FAILED (failures=13, errors=5)
+
+PS C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager> python -m unittest -v test_project
+test_duplicate_id_rejected (test_project.ArrayTests.test_duplicate_id_rejected) ... FAIL
+test_empty (test_project.ArrayTests.test_empty) ... There aren't that many elements in the array!
+
+FAIL
+test_growth_doubles_and_keeps_order (test_project.ArrayTests.test_growth_doubles_and_keeps_order) ... ok
+test_insert_at_beginning (test_project.ArrayTests.test_insert_at_beginning) ... ok
+test_insert_at_end (test_project.ArrayTests.test_insert_at_end) ... ok
+test_insert_in_middle (test_project.ArrayTests.test_insert_in_middle) ... ok
+test_insert_in_middle_when_full (test_project.ArrayTests.test_insert_in_middle_when_full) ... ok
+test_methods_do_not_print (test_project.ArrayTests.test_methods_do_not_print) ... FAIL
+test_multiple_elements (test_project.ArrayTests.test_multiple_elements) ... ok
+test_negative_indexes (test_project.ArrayTests.test_negative_indexes) ... FAIL
+test_noninteger_indexes (test_project.ArrayTests.test_noninteger_indexes) ... That ID # was not found in the array!
+
+
+  test_noninteger_indexes (test_project.ArrayTests.test_noninteger_indexes) (index=1.0) ... FAIL
+That ID # was not found in the array!
+
+  test_noninteger_indexes (test_project.ArrayTests.test_noninteger_indexes) (index='1') ... FAIL
+That ID # was not found in the array!
+
+  test_noninteger_indexes (test_project.ArrayTests.test_noninteger_indexes) (index=None) ... FAIL
+  test_noninteger_indexes (test_project.ArrayTests.test_noninteger_indexes) (index=True) ... FAIL
+test_one_element (test_project.ArrayTests.test_one_element) ... ok
+test_out_of_range_indexes (test_project.ArrayTests.test_out_of_range_indexes) ... There aren't that many elements in the array!
+
+
+  test_out_of_range_indexes (test_project.ArrayTests.test_out_of_range_indexes) (index=3) ... FAIL
+There aren't that many elements in the array!
+
+  test_out_of_range_indexes (test_project.ArrayTests.test_out_of_range_indexes) (index=10) ... FAIL
+That's past the first open spot in the list. Choose a smaller index!
+
+test_out_of_range_indexes (test_project.ArrayTests.test_out_of_range_indexes) ... FAIL
+test_push_and_append (test_project.ArrayTests.test_push_and_append) ... ok
+test_push_when_full (test_project.ArrayTests.test_push_when_full) ... ok
+test_remove_at_beginning (test_project.ArrayTests.test_remove_at_beginning) ... That ID # was not found in the array!
+
+ERROR
+test_remove_at_end (test_project.ArrayTests.test_remove_at_end) ... That ID # was not found in the array!
+
+ERROR
+test_remove_from_empty (test_project.ArrayTests.test_remove_from_empty) ... That ID # was not found in the array!
+
+FAIL
+test_remove_in_middle (test_project.ArrayTests.test_remove_in_middle) ... That ID # was not found in the array!
+
+ERROR
+test_remove_only_element (test_project.ArrayTests.test_remove_only_element) ... That ID # was not found in the array!
+
+ERROR
+test_search_empty (test_project.ArrayTests.test_search_empty) ... The array is empty!
+
+ok
+test_shrink_after_removal_keeps_contents (test_project.ArrayTests.test_shrink_after_removal_keeps_contents) ... ERROR
+test_successful_search (test_project.ArrayTests.test_successful_search) ... ok
+test_two_elements (test_project.ArrayTests.test_two_elements) ... ok
+test_unsuccessful_search (test_project.ArrayTests.test_unsuccessful_search) ... That ID # was not found in the array!
+
+That ID # was not found in the array!
+
+That ID # was not found in the array!
+
+That ID # was not found in the array!
+
+ok
+test_duplicate_id_rejected (test_project.LinkedTests.test_duplicate_id_rejected) ... ok
+test_empty (test_project.LinkedTests.test_empty) ... ok
+test_insert_at_beginning (test_project.LinkedTests.test_insert_at_beginning) ... ok
+test_insert_at_end (test_project.LinkedTests.test_insert_at_end) ... ok
+test_insert_in_middle (test_project.LinkedTests.test_insert_in_middle) ... ok
+test_methods_do_not_print (test_project.LinkedTests.test_methods_do_not_print) ... ok
+test_multiple_elements (test_project.LinkedTests.test_multiple_elements) ... ok
+test_negative_indexes (test_project.LinkedTests.test_negative_indexes) ... ok
+test_noninteger_indexes (test_project.LinkedTests.test_noninteger_indexes) ... 
+  test_noninteger_indexes (test_project.LinkedTests.test_noninteger_indexes) (index=True) ... FAIL
+test_one_element (test_project.LinkedTests.test_one_element) ... ok
+test_out_of_range_indexes (test_project.LinkedTests.test_out_of_range_indexes) ... ok
+test_push_and_append (test_project.LinkedTests.test_push_and_append) ... ok
+test_remove_at_beginning (test_project.LinkedTests.test_remove_at_beginning) ... ok
+test_remove_at_end (test_project.LinkedTests.test_remove_at_end) ... ok
+test_remove_from_empty (test_project.LinkedTests.test_remove_from_empty) ... ok
+test_remove_in_middle (test_project.LinkedTests.test_remove_in_middle) ... ok
+test_remove_only_element (test_project.LinkedTests.test_remove_only_element) ... ok
+test_rules_after_each_insert_and_remove (test_project.LinkedTests.test_rules_after_each_insert_and_remove) ... ok
+test_rules_after_sorting (test_project.LinkedTests.test_rules_after_sorting) ... ok
+test_rules_through_empty_and_back (test_project.LinkedTests.test_rules_through_empty_and_back) ... ok
+test_search_empty (test_project.LinkedTests.test_search_empty) ... ok
+test_successful_search (test_project.LinkedTests.test_successful_search) ... ok
+test_two_elements (test_project.LinkedTests.test_two_elements) ... ok
+test_unsuccessful_search (test_project.LinkedTests.test_unsuccessful_search) ... ok
+
+======================================================================
+ERROR: test_remove_at_beginning (test_project.ArrayTests.test_remove_at_beginning)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line75, in test_remove_at_beginning
+    self.assertEqual(removed.request_id, 1004)
+                     ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'request_id'
+
+======================================================================
+ERROR: test_remove_at_end (test_project.ArrayTests.test_remove_at_end)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line87, in test_remove_at_end
+    self.assertEqual(removed.request_id, 1019)
+                     ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'request_id'
+
+======================================================================
+ERROR: test_remove_in_middle (test_project.ArrayTests.test_remove_in_middle)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line81, in test_remove_in_middle
+    self.assertEqual(removed.request_id, 1019)
+                     ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'request_id'
+
+======================================================================
+ERROR: test_remove_only_element (test_project.ArrayTests.test_remove_only_element)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line93, in test_remove_only_element
+    self.assertEqual(removed.request_id, 1004)
+                     ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'request_id'
+
+======================================================================
+ERROR: test_shrink_after_removal_keeps_contents (test_project.ArrayTests.test_shrink_after_removal_keeps_contents)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line230, in test_shrink_after_removal_keeps_contents
+    self.assertEqual(removed.request_id, 1000)
+                     ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'request_id'
+
+======================================================================
+FAIL: test_duplicate_id_rejected (test_project.ArrayTests.test_duplicate_id_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line101, in test_duplicate_id_rejected
+    with self.assertRaises(ValueError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_empty (test_project.ArrayTests.test_empty)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line36, in test_empty
+    with self.assertRaises(IndexError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: IndexError not raised
+
+======================================================================
+FAIL: test_methods_do_not_print (test_project.ArrayTests.test_methods_do_not_print)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line186, in test_methods_do_not_print
+    self.assertEqual(output.getvalue(), "")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'That ID # was not found in the array!\n\n[37 chars]\n\n' != ''
+- That ID # was not found in the array!
+- 
+- That ID # was not found in the array!
+- 
+
+
+======================================================================
+FAIL: test_negative_indexes (test_project.ArrayTests.test_negative_indexes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line128, in test_negative_indexes
+    with self.assertRaises(IndexError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: IndexError not raised
+
+======================================================================
+FAIL: test_noninteger_indexes (test_project.ArrayTests.test_noninteger_indexes) (index=1.0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line142, in test_noninteger_indexes
+    with self.assertRaises(TypeError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+AssertionError: TypeError not raised
+
+======================================================================
+FAIL: test_noninteger_indexes (test_project.ArrayTests.test_noninteger_indexes) (index='1')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line142, in test_noninteger_indexes
+    with self.assertRaises(TypeError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+AssertionError: TypeError not raised
+
+======================================================================
+FAIL: test_noninteger_indexes (test_project.ArrayTests.test_noninteger_indexes) (index=None)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line142, in test_noninteger_indexes
+    with self.assertRaises(TypeError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+AssertionError: TypeError not raised
+
+======================================================================
+FAIL: test_noninteger_indexes (test_project.ArrayTests.test_noninteger_indexes) (index=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line140, in test_noninteger_indexes
+    with self.assertRaises(TypeError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+AssertionError: TypeError not raised
+
+======================================================================
+FAIL: test_out_of_range_indexes (test_project.ArrayTests.test_out_of_range_indexes) (index=3)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line118, in test_out_of_range_indexes
+    with self.assertRaises(IndexError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: IndexError not raised
+
+======================================================================
+FAIL: test_out_of_range_indexes (test_project.ArrayTests.test_out_of_range_indexes) (index=10)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line118, in test_out_of_range_indexes
+    with self.assertRaises(IndexError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: IndexError not raised
+
+======================================================================
+FAIL: test_out_of_range_indexes (test_project.ArrayTests.test_out_of_range_indexes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line122, in test_out_of_range_indexes
+    with self.assertRaises(IndexError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: IndexError not raised
+
+======================================================================
+FAIL: test_remove_from_empty (test_project.ArrayTests.test_remove_from_empty)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line111, in test_remove_from_empty
+    with self.assertRaises(IndexError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: IndexError not raised
+
+======================================================================
+FAIL: test_noninteger_indexes (test_project.LinkedTests.test_noninteger_indexes) (index=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\cu\dsa\maintenance_project\New folder\DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager\test_project.py", line140, in test_noninteger_indexes
+    with self.assertRaises(TypeError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+AssertionError: TypeError not raised
+
+----------------------------------------------------------------------
+Ran 49 tests in 0.034s
+
+FAILED (failures=13, errors=5)
