@@ -21,7 +21,26 @@ _To be added._
 
 ## 4. LinkedRequestList
 
-_To be added._
+Design review:
+- The linked list will be made of node objects. Each node will hold a maintenance request as well as a reference to the next node.
+- This list is empty if head is None.
+- The last node's next will always be None.
+- No two nodes will have the same request ID, duplicates will be prevented.
+- A failed call, such as a duplicate, out of bounds index or a wrong type will be caught and leave the list unchanged.
+- No cached size is used. count() will walk the entirety of the list. This keeps methods simpler but causes every method that uses count() to be O(n). If a cached size was used, count() would be O(1).
+- No tail pointer exists. append() walks to the last node making it O(n).
+- Checks are done before changing anything. Each method, where relevant, checks the type, the range and if a duplicate exists before making any changes to the linked list.
+- To do duplicate checks, findById will be reused.
+- findById returns the position if found and -1 if not found.
+- Expected complexity is as follows: getAt: O(n), findById: O(n), push: O(n), append: O(n), insertAt O(n), removeAt O(n), count: O(n), insertion sort: O(n^2), merge sort: O(nlogn).
+
+Planned tests and major risks:
+- Duplicate ID's potentially slipping through.
+- Non integer indexes slipping through.
+- Changing arrows in the wrong order and inturn loosing the rest of the chain.
+- Disruption caused by empty lists or one node lists. Must add checks to deal with these cases.
+- When inserting or removing at index 0, making sure that head is correctly changed as changing the head requires a different approach.
+- Removing the last node or the only node. 
 
 ## 5. Planned tests and major risks
 
