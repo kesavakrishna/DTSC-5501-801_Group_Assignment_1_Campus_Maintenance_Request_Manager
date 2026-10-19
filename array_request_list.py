@@ -127,26 +127,22 @@ class ArrayRequestList:
         for i in range(len(backup_copy)):
             self.THE_LIST[i] = backup_copy[i]
 
-    def removeAt(self, MR_ID):
-        # This method lets you pop out a particular mainenance request by its ID #,
-        #       returning that MR at the end. It updates the size and capacity values
-        #       and, if it can, shrinks the array.
+    def removeAt(self, index):
+        # This method lets you pop out a particular mainenance request by its index in,
+        #       the array and return that MR at the end. It updates the size and capacity
+        #       values and, if it can, shrinks the array.
         #
-        # Begin by scanning THE LIST and seeing if any MRs therein have that ID
-        found_it_index = False
-        for i in range(self.size):
-            if self.THE_LIST[i].request_id == MR_ID:
-                # we've found it
-                found_it_index = i
-                break
-        if found_it_index is False:
-            print("That ID # was not found in the array!")
+        # Begin by sanity checking that choice of index
+        if index < 0:
+            print("The index needs to be a nonnegative integer!")
             print()
             return
-        # Well... we've found it. Now to remove it from THE LIST, store it for later
-        #       returning, and shuffle everything after it over by one
-        _ret = self.THE_LIST[found_it_index]
-        for i in range(found_it_index, self.size - 1):
+        if index > self.size - 1:
+            print("That's past the last element in the list. Choose a smaller index!")
+            print()
+            return
+        _ret = self.THE_LIST[index]
+        for i in range(index, self.size - 1):
             self.THE_LIST[i] = self.THE_LIST[i+1]
         self.THE_LIST[self.size-1] = False
         # Update the size to match
