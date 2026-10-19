@@ -1,5 +1,50 @@
 # DTSC-5501-801_Group_Assignment_1_Campus_Maintenance_Request_Manager
 
+DTSC 5501-801, Group Assignment 1. Team 4 (workload Profile D: audit and cleanup).
+
+## Team
+- Kesava Sai Krishna Kondepudi: MaintenanceRequest, dataset generator, tests (Part F), performance experiment (Part G), README
+- Orion Haunstrup: ArrayRequestList with its searching and sorting, workload (Part K), recommendation (Part I), README
+- Ben Weakley: LinkedRequestList with its searching and sorting, complexity analysis (Part H), README
+
+## How to run
+We used Python 3.13. The notebook also needs pandas and matplotlib.
+
+- Tests: python -m unittest -v test_project
+- Notebook: open analysis.ipynb and run the cells from top to bottom. The benchmark cell takes several minutes.
+
+## Files and main classes
+| File | Contents |
+|---|---|
+| `maintenance_request.py` | `MaintenanceRequest` class and `generate_requests(n, seed)` the reproducible dataset |
+| `array_request_list.py` | `ArrayRequestList`: a dynamic array built on a fixed-size Python list |
+| `linked_request_list.py` | `Node` and `LinkedRequestList`: a singly linked list |
+| `algorithms.py` | _To be added_ |
+| `workload.py` | Profile D: generates an operation sequence from a seed and replays it on either structure |
+| `test_project.py` | Unit tests, which are also our demonstration  |
+| `analysis.ipynb` | Predictions, complexity analysis, benchmarks, plots and the recommendation |
+| `design_review.md` | The design review written before implementing |
+
+## Design decisions
+- One shared interface: Both structures have push, append, count, getAt, insertAt, removeAt, findById and __str__ with the same behaviour, so the same tests and benchmarks run on both.
+- Errors: IndexError for an index out of range (getAt/removeAt: 0 ≤ i < n; insertAt: 0 ≤ i ≤ n), TypeError for a non-integer index (including True/False, which Python otherwise treats as 1 and 0), ValueError for a duplicate request_id. Every check happens before anything changes, so a failed call leaves the structure as it was. Methods return results and never print.
+- Not found: findById returns the request's position, or −1 if the ID is not stored. Binary search uses the same convention.
+- Array: _To be added (Orion)._
+- Linked list: _To be added (ben)._
+- Sorting: All four sorts are stable: requests with equal keys keep their original order (test_sort_by_priority and test_sort_by_reported_time check this).
+- Records: MaintenanceRequest does no validation; unique IDs are enforced by the structures (see design_review.md, section 1).
+- Dataset: generate_requests uses its own random.Random(seed), so the same seed always produces the same requests.
+
+## Assumptions
+- request_id is a positive integer. reported_time is an integer where smaller means older; no date/time library is used.
+- priority is 1 (urgent) to 4 (low) and is not validated.
+- Every new request has status "OPEN".
+- Binary search is only called on an array already in increasing request_id order.
+- "Middle" means index n // 2.
+
+## Changes since the design review
+_To be added once the array fixes are in._
+
 ## Testing (Part F)
 
 ### Test plan
