@@ -6,7 +6,9 @@ import contextlib
 from maintenance_request import MaintenanceRequest
 from array_request_list import ArrayRequestList
 from linked_request_list_sort import LinkedRequestList
-from dataset import generate_requests
+from dataset import generate_requests, BUILDINGS, CATEGORIES
+
+TRACE_IDS = [1004, 1011, 1019, 1027, 1033, 1048, 1052, 1066]
 
 def req(request_id, priority=3, reported_time=0):
     """A small request for tests; usually only the ID matters."""
@@ -24,6 +26,12 @@ class ContractTests:
     def make(self):
         raise NotImplementedError
 
+    def sort_priority(self, s):
+        raise NotImplementedError
+
+    def sort_time(self, s):
+        raise NotImplementedError
+    
     def build(self, id_list):
         s = self.make()
         for request_id in id_list:
@@ -185,10 +193,61 @@ class ContractTests:
             str(s)
         self.assertEqual(output.getvalue(), "")
 
+    def test_str_shows_ids_in_order(self):
+        s = self.build([1004, 1011, 1019])
+        text = str(s)
+        self.assertIsInstance(text, str)
+        self.assertLess(text.index("1004"), text.index("1011"))
+        self.assertLess(text.index("1011"), text.index("1019"))
+        self.assertIsInstance(str(self.make()), str)      # an empty structure works too
+
+    # ----- sorting: priority 1 first; oldest reported_time first -----
+
+    def check_sort(self, requests, sort, key):
+        """Build from requests, sort, and compare with Python's sorted():
+        same order, and requests that tie keep their original order."""
+        s = self.make()
+        for r in requests:
+            s.append(r)
+        sort(s)
+        expected = [r.request_id for r in sorted(requests, key=key)]
+        self.assertEqual(ids(s), expected)
+
+    def test_sort_by_priority(self):
+        inputs = {
+            "empty": [],
+            "one element": [req(1004, priority=2)],
+            "already sorted": [req(1004, priority=1), req(1011, priority=2), req(1019, priority=3)],
+            "reverse sorted": [req(1004, priority=3), req(1011, priority=2), req(1019, priority=1)],
+            "random, with ties": generate_requests(50),
+        }
+        for name, requests in inputs.items():
+            with self.subTest(input=name):
+                self.check_sort(requests, self.sort_priority, key=lambda r: r.priority)
+
+    def test_sort_by_reported_time(self):
+        inputs = {
+            "empty": [],
+            "one element": [req(1004, reported_time=50)],
+            "already sorted": [req(1004, reported_time=10), req(1011, reported_time=20), req(1019, reported_time=30)],
+            "reverse sorted": [req(1004, reported_time=30), req(1011, reported_time=20), req(1019, reported_time=10)],
+            "random, with ties": generate_requests(50),
+        }
+        for name, requests in inputs.items():
+            with self.subTest(input=name):
+                self.check_sort(requests, self.sort_time, key=lambda r: r.reported_time)
+
 class ArrayTests(ContractTests, unittest.TestCase):
+   
     def make(self):
         return ArrayRequestList()
-   
+
+    def sort_priority(self, s):
+        s.sort_by_priority()
+
+    def sort_time(self, s):
+        s.sort_by_reported_time()
+
     def check_array(self, s):
         """The array's own rules: size fits in capacity, the buffer is exactly
         capacity long, and every slot past size is empty (False)."""
@@ -232,11 +291,51 @@ class ArrayTests(ContractTests, unittest.TestCase):
         self.assertEqual(ids(s), [1001 + i for i in range(8)])
         self.check_array(s)
         self.assertEqual(output.getvalue(), "")
+    
+    def test_rules_after_sorting(self):
+        s = self.make()
+        for r in generate_requests(50):
+            s.append(r)
+        s.sort_by_priority()
+        self.check_array(s)
+        s.sort_by_reported_time()
+        self.check_array(s)
 
+    # ----- binary search (array only; IDs must be in increasing order) -----
+
+    def test_binary_search_trace_array(self):
+        s = self.build(TRACE_IDS)
+        self.assertEqual(s.findById_Binary(1048), 5)     # found: returns the position, not the ID
+        self.assertEqual(s.findById_Binary(1030), -1)    # missing: between 1027 and 1033
+
+    def test_binary_search_every_size(self):
+        for size in range(len(TRACE_IDS) + 1):           # 0 to 8 elements
+            id_list = TRACE_IDS[:size]
+            s = self.build(id_list)
+            with self.subTest(size=size):
+                for position, request_id in enumerate(id_list):
+                    self.assertEqual(s.findById_Binary(request_id), position)
+                for missing in (1000, 1008, 1030, 1070, 3):  # below, between, between, above, an index
+                    self.assertEqual(s.findById_Binary(missing), -1)
+
+    def test_binary_search_does_not_print(self):
+        output = io.StringIO()
+        with contextlib.redirect_stdout(output):
+            s = self.build(TRACE_IDS)
+            s.findById_Binary(1048)
+            s.findById_Binary(1030)
+            self.make().findById_Binary(1004)            # empty array
+        self.assertEqual(output.getvalue(), "")
+                         
 class LinkedTests(ContractTests, unittest.TestCase):
     def make(self):
         return LinkedRequestList()
 
+    def sort_priority(self, s):
+        s.insertionSortPriority()
+
+    def sort_time(self, s):
+        s.mergeSortByTime()
     def check_linked(self, s):
         """Empty exactly when head is None, the chain ends in None,
         and count() matches the nodes reachable from head."""
@@ -288,5 +387,38 @@ class LinkedTests(ContractTests, unittest.TestCase):
         self.check_linked(s)
         self.assertEqual(set(ids(s)), {r.request_id for r in requests})
 
+class MaintenanceRequestTests(unittest.TestCase):
+    def test_fields_and_default_status(self):
+        r = MaintenanceRequest(1042, "CASE", "HVAC", 2, 184)
+        self.assertEqual(r.request_id, 1042)
+        self.assertEqual(r.building, "CASE")
+        self.assertEqual(r.category, "HVAC")
+        self.assertEqual(r.priority, 2)
+        self.assertEqual(r.reported_time, 184)
+        self.assertEqual(r.status, "OPEN")
+        self.assertEqual(str(r), "#1042 CASE HVAC P2 t=184 OPEN")
+
+
+class DatasetTests(unittest.TestCase):
+    def test_same_seed_gives_same_requests(self):
+        first = [str(r) for r in generate_requests(100, seed=7)]
+        again = [str(r) for r in generate_requests(100, seed=7)]
+        other = [str(r) for r in generate_requests(100, seed=8)]
+        self.assertEqual(first, again)
+        self.assertNotEqual(first, other)
+
+    def test_ids_are_unique_at_largest_size(self):
+        requests = generate_requests(25_000)              # the largest benchmark size
+        self.assertEqual(len({r.request_id for r in requests}), 25_000)
+
+    def test_fields_are_valid_and_cover_every_building(self):
+        requests = generate_requests(200)
+        for r in requests:
+            self.assertIn(r.building, BUILDINGS)
+            self.assertIn(r.category, CATEGORIES)
+            self.assertIn(r.priority, (1, 2, 3, 4))
+            self.assertEqual(r.status, "OPEN")
+        self.assertEqual({r.building for r in requests}, set(BUILDINGS))
+        
 if __name__ == "__main__":
     unittest.main()

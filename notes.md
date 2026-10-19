@@ -4,9 +4,11 @@ Run all tests:   `python -m unittest -v test_project`
 
 | Structure | Tests | Passing | Failing |
 |---|---|---|---|
-| ArrayRequestList | 25 | 13 | 12 |
-| LinkedRequestList | 24 | 23 | 1 |
-
+| ArrayRequestList | 32 | 19 | 13 |
+| LinkedRequestList | 27 | 26 | 1 |
+| MaintenanceRequest + dataset | 4 | 4 | 0 |
+| **Total** | **63** | **49** | **14** |
+  
 Run only your own tests while fixing:
 - `python -m unittest -v test_project.ArrayTests`
 - `python -m unittest -v test_project.LinkedTests`
@@ -46,9 +48,10 @@ Run only your own tests while fixing:
 
 ### 5. Remove every `print` from the methods
 - `findById` miss → just `return -1` (no "not found" / "array is empty" message)
+-  findById_Binary: prints That ID # was not found on a miss and The array is empty! on an empty array. Just return -1.
 - `print(a)` inside `is_it_a_power_of_two` prints `8 4 2` whenever the array shrinks
 - **Fixes:** test_methods_do_not_print, and the last check in
-  test_shrink_after_removal_keeps_contents
+  test_shrink_after_removal_keeps_contents, test_binary_search_does_not_print
 
 **Already working:** resizing (8 → 16 → 32, insert/push when full), insert at
 beginning/middle/end, push/append, `findById` return values.
