@@ -23,22 +23,6 @@ def is_it_a_power_of_two(n):
         a = b
     return True
 
-## To do my part of the project simultaneously while Kesava does his (he's making the MaintenanceRequest class),
-##        I'll be adding this little "dummy" version of the class
-
-class MaintenanceRequest_dummy:
-    
-    def __init__(self, request_id, priority, reported_time):
-        self.request_id = request_id
-        self.priority = priority
-        self.reported_time = reported_time
-
-
-# I will refer to these as MRs in my code below
-
-
-# Now for my actual contribution
-
 """
 
 This is going to be my version of the Dynamic Array-based way of storing all the info from various

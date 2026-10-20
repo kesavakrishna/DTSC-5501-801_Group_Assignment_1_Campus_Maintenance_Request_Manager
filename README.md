@@ -19,7 +19,7 @@ We used Python 3.13. The notebook also needs pandas and matplotlib.
 | `maintenance_request.py` | `MaintenanceRequest` class and `generate_requests(n, seed)` the reproducible dataset |
 | `array_request_list.py` | `ArrayRequestList`: a dynamic array built on a fixed-size Python list |
 | `linked_request_list.py` | `Node` and `LinkedRequestList`: a singly linked list |
-| `algorithms.py` | _To be added_ |
+| `algorithms.py` | `binary_search_by_id` and `first_occurrence_by_priority`: binary searches over a sorted array (Part D) |
 | `workload.py` | Profile D: generates an operation sequence from a seed and replays it on either structure |
 | `test_project.py` | Unit tests, which are also our demonstration  |
 | `analysis.ipynb` | Predictions, complexity analysis, benchmarks, plots and the recommendation |
@@ -30,9 +30,7 @@ We used Python 3.13. The notebook also needs pandas and matplotlib.
 - Errors: IndexError for an index out of range (getAt/removeAt: 0 ≤ i < n; insertAt: 0 ≤ i ≤ n), TypeError for a non-integer index (including True/False, which Python otherwise treats as 1 and 0), ValueError for a duplicate request_id. Every check happens before anything changes, so a failed call leaves the structure as it was. Methods return results and never print.
 - Not found: findById returns the request's position, or −1 if the ID is not stored. Binary search uses the same convention.
 
-- Dynamic Array: 
-a fixed-size Python list with separate size and capacity. Capacity starts at 8 and doubles when an insert finds the array full; when a removal leaves the size at a power of two (8 or more), the capacity halves.
-
+- Dynamic array: a fixed-size Python list (THE_LIST) with separate size and capacity. Capacity starts at 8 and doubles when an insert finds the array full; when a removal leaves the size at a power of two (8 or more), the capacity halves. Known tradeoff: at exactly a power of two, alternating one insert and one removal makes the array double and then halve every time, copying every element each time. Shrinking only when the array is a quarter full would avoid this; our benchmark sizes and the Profile D workload never reach that case.
 - Linked list: No cached size or tail pointer were used for simplicity. The input is validated through out of bounds checks to ensure the structure remans unchanged after a failed operation. -1 is returned if the ID is not stored. 
 - Sorting: All four sorts are stable: requests with equal keys keep their original order (test_sort_by_priority and test_sort_by_reported_time check this).
 - Records: MaintenanceRequest does no validation; unique IDs are enforced by the structures (see design_review.md, section 1).
@@ -47,7 +45,9 @@ a fixed-size Python list with separate size and capacity. Capacity starts at 8 a
 
 ## Changes since the design review
 - Linked list: A boolean check was added to the type index check after it was shown in testing that True was returning 1.
-- Array: removeAt originally removed the request with a given ID; it now removes the request at a given position, as the shared interface requires. an invalid position used to print a message and return None; it now raises IndexError, and a non-integer position raises TypeError. A test can now detect the failure, and no method prints.
+- Array: removeAt originally removed the request with a given ID; it now removes the request at a given position, as the shared interface requires. An invalid position used to print a message and return None; it now raises IndexError, and a non-integer position raises TypeError. A test can now detect the failure, and no method prints.
+- Array: push, append and insertAt now reject a duplicate request_id with ValueError. The check scans the whole array before inserting, so append is O(n) rather than the O(1) amortized estimated in design_review.md, section 3.
+- Array: the binary search by ID and the first-occurrence search started as ArrayRequestList methods (findById_Binary, findByPriority_Binary); they are now functions in algorithms.py that read any sorted collection through count() and getAt(). The search logic is unchanged.
 
 ## Testing (Part F)
 
