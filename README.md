@@ -30,7 +30,7 @@ We used Python 3.13. The notebook also needs pandas and matplotlib.
 - Errors: IndexError for an index out of range (getAt/removeAt: 0 ≤ i < n; insertAt: 0 ≤ i ≤ n), TypeError for a non-integer index (including True/False, which Python otherwise treats as 1 and 0), ValueError for a duplicate request_id. Every check happens before anything changes, so a failed call leaves the structure as it was. Methods return results and never print.
 - Not found: findById returns the request's position, or −1 if the ID is not stored. Binary search uses the same convention.
 - Array: _To be added (Orion)._
-- Linked list: _To be added (ben)._
+- Linked list: No cached size or tail pointer were used for simplicity. The input is validated through out of bounds checks to ensure the structure remans unchanged after a failed operation. -1 is returned if the ID is not stored. 
 - Sorting: All four sorts are stable: requests with equal keys keep their original order (test_sort_by_priority and test_sort_by_reported_time check this).
 - Records: MaintenanceRequest does no validation; unique IDs are enforced by the structures (see design_review.md, section 1).
 - Dataset: generate_requests uses its own random.Random(seed), so the same seed always produces the same requests.
