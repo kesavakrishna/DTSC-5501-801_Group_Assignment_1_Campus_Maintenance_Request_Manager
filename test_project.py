@@ -6,7 +6,7 @@ import contextlib
 from maintenance_request import MaintenanceRequest, generate_requests, BUILDINGS, CATEGORIES
 
 from array_request_list import ArrayRequestList
-from linked_request_list_sort import LinkedRequestList
+from linked_request_list import LinkedRequestList
 from algorithms import binary_search_by_id, first_occurrence_by_priority
 
 TRACE_IDS = [1004, 1011, 1019, 1027, 1033, 1048, 1052, 1066]
