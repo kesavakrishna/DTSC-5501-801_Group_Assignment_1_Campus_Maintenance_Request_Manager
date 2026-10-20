@@ -282,6 +282,47 @@ class ArrayTests(SharedTests, unittest.TestCase):
         self.assertEqual(ids(s), [2000] + [1000 + i for i in range(8)])
         self.check_array(s)
 
+    # ----- first occurrence by priority (array only; priorities must be in increasing order) -----
+
+    def build_priorities(self, priorities):
+        """An array whose requests have these priorities, in this order (IDs 2000, 2001, ...)."""
+        s = self.make()
+        for i, priority in enumerate(priorities):
+            s.append(req(2000 + i, priority=priority))
+        return s
+
+    def test_first_occurrence_cases(self):
+        s = self.build_priorities([1, 1, 2, 2, 2, 3, 4, 4])
+        cases = {
+            "beginning (a run at the start)": (1, 0),
+            "duplicate (first of three 2s, not the middle one)": (2, 2),
+            "middle (only one 3)": (3, 5),
+            "end (a run at the end)": (4, 6),
+            "not found (below every priority)": (0, -1),
+            "not found (above every priority)": (5, -1),
+        }
+        for name, (priority, expected) in cases.items():
+            with self.subTest(case=name):
+                self.assertEqual(first_occurrence_by_priority(s, priority), expected)
+
+    def test_first_occurrence_edge_cases(self):
+        self.assertEqual(first_occurrence_by_priority(self.make(), 1), -1)                        # empty
+        self.assertEqual(first_occurrence_by_priority(self.build_priorities([2]), 2), 0)            # single element, found
+        self.assertEqual(first_occurrence_by_priority(self.build_priorities([2]), 1), -1)           # single element, missing
+        self.assertEqual(first_occurrence_by_priority(self.build_priorities([1, 1, 2, 4]), 3), -1)  # missing from the middle
+        self.assertEqual(first_occurrence_by_priority(self.build_priorities([3] * 7), 3), 0)        # every element matches
+        self.assertEqual(first_occurrence_by_priority(self.build_priorities([1, 2, 3, 4]), 4), 3)   # only at the very end
+
+    def test_first_occurrence_after_insertion_sort(self):
+        s = self.make()
+        for r in generate_requests(200):
+            s.append(r)
+        s.sort_by_priority()
+        priorities = [s.getAt(i).priority for i in range(s.count())]
+        for priority in (1, 2, 3, 4):
+            with self.subTest(priority=priority):
+                self.assertEqual(first_occurrence_by_priority(s, priority), priorities.index(priority))
+
     def test_shrink_after_removal_keeps_contents(self):
         s = self.build([1000 + i for i in range(9)])     # 9 items, capacity 16
         output = io.StringIO()

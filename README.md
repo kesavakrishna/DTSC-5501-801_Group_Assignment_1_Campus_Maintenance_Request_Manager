@@ -118,7 +118,7 @@ Unless marked, each test runs on both `ArrayRequestList` and `LinkedRequestList`
 | `findById` (linear search) | `test_successful_search`, `test_unsuccessful_search`, `test_search_empty` |
 | `__str__` | `test_str_shows_ids_in_order` |
 | Binary search (array) | `test_binary_search_trace_array`, `test_binary_search_every_size` |
-| First occurrence by priority | _To be added_ |
+| First occurrence by priority (array) | `test_first_occurrence_cases`, `test_first_occurrence_edge_cases`, `test_first_occurrence_after_insertion_sort` |
 | Insertion sort by priority | `test_sort_by_priority` |
 | Merge sort by reported time | `test_sort_by_reported_time` |
 | Array resizing | `test_growth_doubles_and_keeps_order`, `test_push_when_full`, `test_insert_in_middle_when_full`, `test_shrink_after_removal_keeps_contents` |
