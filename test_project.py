@@ -3,11 +3,10 @@
 import unittest
 import io
 import contextlib
-from maintenance_request import MaintenanceRequest
+from maintenance_request import MaintenanceRequest, generate_requests, BUILDINGS, CATEGORIES
+
 from array_request_list import ArrayRequestList
 from linked_request_list_sort import LinkedRequestList
-from dataset import generate_requests, BUILDINGS, CATEGORIES
-
 TRACE_IDS = [1004, 1011, 1019, 1027, 1033, 1048, 1052, 1066]
 
 def req(request_id, priority=3, reported_time=0):
