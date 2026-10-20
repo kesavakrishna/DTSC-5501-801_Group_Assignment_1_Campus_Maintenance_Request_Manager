@@ -7,6 +7,8 @@ from maintenance_request import MaintenanceRequest, generate_requests, BUILDINGS
 
 from array_request_list import ArrayRequestList
 from linked_request_list_sort import LinkedRequestList
+from algorithms import binary_search_by_id, first_occurrence_by_priority
+
 TRACE_IDS = [1004, 1011, 1019, 1027, 1033, 1048, 1052, 1066]
 
 def req(request_id, priority=3, reported_time=0):
@@ -304,8 +306,8 @@ class ArrayTests(SharedTests, unittest.TestCase):
 
     def test_binary_search_trace_array(self):
         s = self.build(TRACE_IDS)
-        self.assertEqual(s.findById_Binary(1048), 5)     # found: returns the position, not the ID
-        self.assertEqual(s.findById_Binary(1030), -1)    # missing: between 1027 and 1033
+        self.assertEqual(binary_search_by_id(s,1048), 5)     # found: returns the position, not the ID
+        self.assertEqual(binary_search_by_id(s,1030), -1)    # missing: between 1027 and 1033
 
     def test_binary_search_every_size(self):
         for size in range(len(TRACE_IDS) + 1):           # 0 to 8 elements
@@ -313,17 +315,17 @@ class ArrayTests(SharedTests, unittest.TestCase):
             s = self.build(id_list)
             with self.subTest(size=size):
                 for position, request_id in enumerate(id_list):
-                    self.assertEqual(s.findById_Binary(request_id), position)
+                    self.assertEqual(binary_search_by_id(s,request_id), position)
                 for missing in (1000, 1008, 1030, 1070, 3):  # below, between, between, above, an index
-                    self.assertEqual(s.findById_Binary(missing), -1)
+                    self.assertEqual(binary_search_by_id(s,missing), -1)
 
     def test_binary_search_does_not_print(self):
         output = io.StringIO()
         with contextlib.redirect_stdout(output):
             s = self.build(TRACE_IDS)
-            s.findById_Binary(1048)
-            s.findById_Binary(1030)
-            self.make().findById_Binary(1004)            # empty array
+            binary_search_by_id(s,1048)
+            binary_search_by_id(s,1030)
+            binary_search_by_id(self.make(), 1004)            # empty array
         self.assertEqual(output.getvalue(), "")
                          
 class LinkedTests(SharedTests, unittest.TestCase):

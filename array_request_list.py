@@ -9,21 +9,6 @@ Fall 2026
 
 
 
-"""
-
-NOTE!!!!
-
-I have not yet added aggressive error-case testing. Possibly each of these functions should contain a lot more
-sanity checks to make sure the user is entering the correct type (int) and not random inputs like "bacon".
-We'll see later if that seems like a good idea or not.
-
-PS: I also have not yet brutally tested these with edge cases and tried to get them to break. I have, however,
-verified that they work under normal circumstances.
-
-"""
-
-
-
 # This is a cute little function we'll need in the code below:
 def is_it_a_power_of_two(n):
     # quick sanity check
@@ -31,7 +16,6 @@ def is_it_a_power_of_two(n):
         return False
     a = int(n)
     while a != 1:
-        #print(a)
         b = a // 2
         # check did it divide evenly?
         if b * 2 != a:
@@ -74,6 +58,9 @@ class ArrayRequestList:
         self.THE_LIST = [False] * self.capacity
 
     def push(self, MR):
+        # Reject a duplicate request_id before changing anything
+        if self.findById(MR.request_id) != -1:
+            raise ValueError("That request_id is already in the array!")
         # First check if there's available room in THE LIST
         if self.size < self.capacity:
             # Shuffle everything to the right by one (starting at the last element)
@@ -89,6 +76,9 @@ class ArrayRequestList:
             self.push(MR)
 
     def append(self, MR):
+        # Reject a duplicate request_id before changing anything
+        if self.findById(MR.request_id) != -1:
+            raise ValueError("That request_id is already in the array!")        
         # First check if there's available room in THE LIST
         if self.size < self.capacity:
             # Add it to the first free slot at the end. Thankfully, self.size
@@ -110,7 +100,7 @@ class ArrayRequestList:
         # Check to see if there are that many elements in THE LIST
         if type(index) != int:
             raise TypeError("You've gotta submit an integer!")
-        if index >= self.size:
+        if index < 0  or index >= self.size:
             raise IndexError("There aren't that many elements in the array!")
         else:
             return self.THE_LIST[index]
@@ -166,6 +156,11 @@ class ArrayRequestList:
             raise IndexError("The index needs to be a nonnegative integer!")
         if index > self.size:
             raise IndexError("That's past the first open spot in the list. Choose a smaller index!")
+        if index > self.size:
+            raise IndexError("That's past the first open spot in the list. Choose a smaller index!")
+        # Reject a duplicate request_id before changing anything
+        if self.findById(MR.request_id) != -1:
+            raise ValueError("That request_id is already in the array!")
         # Next check if there's available room in THE LIST
         if self.size < self.capacity:
             # Cool! We have room... Now let's shuffle everything to the right over by one and place it.
@@ -200,83 +195,17 @@ class ArrayRequestList:
         if type(MR_ID) != int:
             raise TypeError("You've gotta submit an integer!")
         if self.size == 0:
-            raise IndexError("The array is empty!")
+            return -1
         # Begin by scanning THE LIST and seeing if any MRs therein have that ID
         for i in range(self.size):
             if self.THE_LIST[i].request_id == MR_ID:
                 # we've found it
                 return i
-        #print("That ID # was not found in the array!")
         return -1
 
     def findById(self, MR_ID):
         # This only exists in case the grader uses that exact phrase. Same as the above method
         return self.findById_Linear(MR_ID)
-
-    def findById_Binary(self, MR_ID):
-        # NOTE! This method requires that the user MUST give it a pre-sorted array, in ascending order.
-        #       I'm pretty much porting over a slightly weirder, object-based version of my same
-        #       binary search code from Assignment 2 (with the flow charts).
-        L_index = 0
-        U_index = self.size - 1
-        # Quick sanity checks:
-        if type(MR_ID) != int:
-            raise TypeError("You've gotta submit an integer!")
-        if self.size == 0:
-            raise IndexError("The array is empty!")
-        # Sanity checks complete. Let's now do the loop and search
-        while (self.THE_LIST[L_index].request_id <= MR_ID <= self.THE_LIST[U_index].request_id) and L_index <= U_index:
-            Guess_index = int((U_index + L_index) / 2)
-            if self.THE_LIST[Guess_index].request_id == MR_ID:                           
-                return Guess_index
-            elif self.THE_LIST[Guess_index].request_id > MR_ID:
-                U_index = Guess_index - 1
-            else:
-                L_index = Guess_index + 1
-            if U_index - L_index == 1:
-                Guess_index = U_index
-                if self.THE_LIST[Guess_index].request_id == MR_ID:
-                    return Guess_index
-                Guess_index = L_index
-                if self.THE_LIST[Guess_index].request_id == MR_ID:
-                    return Guess_index
-                else:
-                    #print("That ID # was not found in the array!")
-                    return -1
-        #print("That ID # was not found in the array!")
-        return -1
-
-    def findByPriority_Binary(self, priority):
-        # NOTE! This method requires that the user MUST give it a pre-sorted array, in ascending order.
-        #       I'm pretty much porting over a slightly weirder, object-based version of my same
-        #       binary search code from Assignment 2 (with the flow charts).
-        #
-        # Note! this is being designed to satisfy the First Occurrency by
-        #       Priority requirement in the assignment.
-        #
-        # Lolz @ Orion was really struggling with this one and so was assisted
-        #       by his teammates. That's why this one is so structurally
-        #       different from the (probably less efficient) one above.
-        L_index = 0
-        U_index = self.size - 1
-        first_found = -1
-        # Quick sanity checks:
-        if type(priority) != int:
-            raise TypeError("You've gotta submit an integer!")
-        if self.size == 0:
-            raise IndexError("The array is empty!")
-        # Sanity checks complete. Let's now do the loop and search
-        while L_index <= U_index:
-            Guess_index = int((U_index + L_index) / 2)
-            if self.THE_LIST[Guess_index].priority == priority:
-                first_found = Guess_index
-                U_index = Guess_index - 1
-            elif self.THE_LIST[Guess_index].priority > priority:
-                U_index = Guess_index - 1
-            else:
-                L_index = Guess_index + 1
-
-        return first_found
 
     def __str__(self):
         _ret = ""
