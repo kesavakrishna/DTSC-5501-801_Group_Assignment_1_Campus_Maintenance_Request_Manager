@@ -28,7 +28,7 @@ class LinkedRequestList:
     def getAt(self, index):
         tempNode = self.head
         countIndex = 0
-        if isinstance(index, int) is False:
+        if isinstance(index, bool) or not isinstance(index, int):
             raise TypeError("Index is not an int")
         if index < 0 or index >= self.count():
             raise IndexError("Index is out of range")
@@ -49,7 +49,7 @@ class LinkedRequestList:
         lastNode = Node(request)
         prevNode.next = lastNode
     def insertAt(self, index, request):
-        if isinstance(index, int) is False:
+        if isinstance(index, bool) or not isinstance(index, int):
             raise TypeError("Index is not an int")
         if index < 0 or index > self.count():
             raise IndexError("Index is out of range")
@@ -70,7 +70,7 @@ class LinkedRequestList:
           tempNode = tempNode.next
           countIndex += 1
     def removeAt(self, index):
-        if isinstance(index, int) is False:
+        if isinstance(index, bool) or not isinstance(index, int):
             raise TypeError("Index is not an int")
         if index < 0 or index >= self.count():
             raise IndexError("Index is out of range")
