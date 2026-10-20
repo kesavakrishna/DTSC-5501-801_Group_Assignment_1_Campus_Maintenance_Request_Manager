@@ -3,15 +3,23 @@
 DTSC 5501-801, Group Assignment 1. Team 4 (workload Profile D: audit and cleanup).
 
 ## Team
-- Kesava Sai Krishna Kondepudi: MaintenanceRequest, dataset generator, tests (Part F), performance experiment (Part G), README
-- Orion Haunstrup: ArrayRequestList with its searching and sorting, workload (Part K), recommendation (Part I), README
-- Ben Weakley: LinkedRequestList with its searching and sorting, complexity analysis (Part H), README
+- Kesava Sai Krishna Kondepudi
+- Orion Haunstrup
+- Ben Weakley
+
+## Team contribution statement
+- Kesava Sai Krishna Kondepudi: MaintenanceRequest and the dataset generator; test_project.py (tests, demonstration and failure-mode analysis); the Part G performance experiment (predictions, benchmark code, plots, observed vs predicted).
+- Orion Haunstrup: ArrayRequestList with its sorts and binary searches, including first occurrence by priority; workload.py (Part K); the recommendation (Part I).
+- Ben Weakley: LinkedRequestList with its insertion sort and merge sort; the complexity analysis (Part H); the binary search trace (Part D).
+- Shared by all three: the README, the design review (each of us wrote the section for our own part), and the fixes made after testing, to the array, the linked list, algorithms.py and the workload.
 
 ## How to run
 We used Python 3.13. The notebook also needs pandas and matplotlib.
 
 - Tests: python -m unittest -v test_project
-- Notebook: open analysis.ipynb and run the cells from top to bottom. The benchmark cell takes several minutes.
+- Workload (Part K): python workload.py. It takes a few minutes and prints the operation counts, the median replay time of each structure and the final collection sizes.
+- Notebook: open analysis.ipynb. The saved outputs are the results discussed in the text; re-running the benchmark cell takes about 10 minutes and gives slightly different numbers.
+- Results: the predictions, experimental setup, benchmark tables, plots, complexity analysis, observed vs predicted, workload results and the recommendation are all in analysis.ipynb.
 
 ## Files and main classes
 | File | Contents |
@@ -106,6 +114,8 @@ Our demonstration is `test_project.py`: every required operation has at least on
 successful example there, checked with assertions. Run
 `python -m unittest -v test_project` to see each test listed with `ok`.
 Unless marked, each test runs on both `ArrayRequestList` and `LinkedRequestList`.
+
+Final run (Oct 19): Ran 66 tests, OK.
 
 | Operation | Tests that show it working |
 |---|---|
