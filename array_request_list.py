@@ -31,7 +31,7 @@ def is_it_a_power_of_two(n):
         return False
     a = int(n)
     while a != 1:
-        print(a)
+        #print(a)
         b = a // 2
         # check did it divide evenly?
         if b * 2 != a:
@@ -108,10 +108,10 @@ class ArrayRequestList:
 
     def getAt(self, index):
         # Check to see if there are that many elements in THE LIST
+        if type(index) != int:
+            raise TypeError("You've gotta submit an integer!")
         if index >= self.size:
-            print("There aren't that many elements in the array!")
-            print()
-            return
+            raise IndexError("There aren't that many elements in the array!")
         else:
             return self.THE_LIST[index]
 
@@ -133,14 +133,12 @@ class ArrayRequestList:
         #       values and, if it can, shrinks the array.
         #
         # Begin by sanity checking that choice of index
+        if type(index) != int:
+            raise TypeError("You've gotta submit an integer!")
         if index < 0:
-            print("The index needs to be a nonnegative integer!")
-            print()
-            return
+            raise IndexError("The index needs to be a nonnegative integer!")
         if index > self.size - 1:
-            print("That's past the last element in the list. Choose a smaller index!")
-            print()
-            return
+            raise IndexError("That's past the last element in the list. Choose a smaller index!")
         _ret = self.THE_LIST[index]
         for i in range(index, self.size - 1):
             self.THE_LIST[i] = self.THE_LIST[i+1]
@@ -162,14 +160,12 @@ class ArrayRequestList:
         #
         # Begin by sanity checking if that index is positive and if there are at least that many
         #       elements in THE LIST
+        if type(index) != int:
+            raise TypeError("You've gotta submit an integer!")
         if index < 0:
-            print("The index needs to be a nonnegative integer!")
-            print()
-            return
+            raise IndexError("The index needs to be a nonnegative integer!")
         if index > self.size:
-            print("That's past the first open spot in the list. Choose a smaller index!")
-            print()
-            return
+            raise IndexError("That's past the first open spot in the list. Choose a smaller index!")
         # Next check if there's available room in THE LIST
         if self.size < self.capacity:
             # Cool! We have room... Now let's shuffle everything to the right over by one and place it.
@@ -201,17 +197,16 @@ class ArrayRequestList:
 
     def findById_Linear(self, MR_ID):
         # Quick sanity check:
+        if type(MR_ID) != int:
+            raise TypeError("You've gotta submit an integer!")
         if self.size == 0:
-            print("The array is empty!")
-            print()
-            return -1
+            raise IndexError("The array is empty!")
         # Begin by scanning THE LIST and seeing if any MRs therein have that ID
         for i in range(self.size):
             if self.THE_LIST[i].request_id == MR_ID:
                 # we've found it
                 return i
-        print("That ID # was not found in the array!")
-        print()
+        #print("That ID # was not found in the array!")
         return -1
 
     def findById(self, MR_ID):
@@ -225,10 +220,10 @@ class ArrayRequestList:
         L_index = 0
         U_index = self.size - 1
         # Quick sanity checks:
+        if type(MR_ID) != int:
+            raise TypeError("You've gotta submit an integer!")
         if self.size == 0:
-            print("The array is empty!")
-            print()
-            return -1
+            raise IndexError("The array is empty!")
         # Sanity checks complete. Let's now do the loop and search
         while (self.THE_LIST[L_index].request_id <= MR_ID <= self.THE_LIST[U_index].request_id) and L_index <= U_index:
             Guess_index = int((U_index + L_index) / 2)
@@ -246,11 +241,9 @@ class ArrayRequestList:
                 if self.THE_LIST[Guess_index].request_id == MR_ID:
                     return Guess_index
                 else:
-                    print("That ID # was not found in the array!")
-                    print()
+                    #print("That ID # was not found in the array!")
                     return -1
-        print("That ID # was not found in the array!")
-        print()
+        #print("That ID # was not found in the array!")
         return -1
 
     def __str__(self):
