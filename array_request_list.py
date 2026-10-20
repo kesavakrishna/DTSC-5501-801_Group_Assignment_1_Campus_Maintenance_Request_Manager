@@ -246,6 +246,38 @@ class ArrayRequestList:
         #print("That ID # was not found in the array!")
         return -1
 
+    def findByPriority_Binary(self, priority):
+        # NOTE! This method requires that the user MUST give it a pre-sorted array, in ascending order.
+        #       I'm pretty much porting over a slightly weirder, object-based version of my same
+        #       binary search code from Assignment 2 (with the flow charts).
+        #
+        # Note! this is being designed to satisfy the First Occurrency by
+        #       Priority requirement in the assignment.
+        #
+        # Lolz @ Orion was really struggling with this one and so was assisted
+        #       by his teammates. That's why this one is so structurally
+        #       different from the (probably less efficient) one above.
+        L_index = 0
+        U_index = self.size - 1
+        first_found = -1
+        # Quick sanity checks:
+        if type(priority) != int:
+            raise TypeError("You've gotta submit an integer!")
+        if self.size == 0:
+            raise IndexError("The array is empty!")
+        # Sanity checks complete. Let's now do the loop and search
+        while L_index <= U_index:
+            Guess_index = int((U_index + L_index) / 2)
+            if self.THE_LIST[Guess_index].priority == priority:
+                first_found = Guess_index
+                U_index = Guess_index - 1
+            elif self.THE_LIST[Guess_index].priority > priority:
+                U_index = Guess_index - 1
+            else:
+                L_index = Guess_index + 1
+
+        return first_found
+
     def __str__(self):
         _ret = ""
         _ret = _ret + "The current array size is " + str(self.size) + "\n"
