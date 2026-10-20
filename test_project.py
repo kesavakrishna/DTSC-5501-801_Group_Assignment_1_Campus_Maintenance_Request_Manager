@@ -20,7 +20,7 @@ def ids(structure):
     return [structure.getAt(i).request_id for i in range(structure.count())]
 
 
-class ContractTests:
+class SharedTests:
     """Tests every structure must pass. Each subclass says which structure to build."""
 
     def make(self):
@@ -237,7 +237,7 @@ class ContractTests:
             with self.subTest(input=name):
                 self.check_sort(requests, self.sort_time, key=lambda r: r.reported_time)
 
-class ArrayTests(ContractTests, unittest.TestCase):
+class ArrayTests(SharedTests, unittest.TestCase):
    
     def make(self):
         return ArrayRequestList()
@@ -327,7 +327,7 @@ class ArrayTests(ContractTests, unittest.TestCase):
             self.make().findById_Binary(1004)            # empty array
         self.assertEqual(output.getvalue(), "")
                          
-class LinkedTests(ContractTests, unittest.TestCase):
+class LinkedTests(SharedTests, unittest.TestCase):
     def make(self):
         return LinkedRequestList()
 

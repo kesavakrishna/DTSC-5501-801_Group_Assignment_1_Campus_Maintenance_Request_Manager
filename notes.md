@@ -18,7 +18,7 @@ Run only your own tests while fixing:
 
 ## ArrayRequestList (12 failing tests)
 
-### 1. `removeAt` should take a position, not an ID
+### 1. `removeAt` should take a position, not an ID (UPDATE: Done)
 - **Now:** `removeAt(0)` looks for a request whose ID is 0, prints
   "That ID # was not found", and returns `None`.
 - **Expected:** `removeAt(0)` removes **and returns** the first request
