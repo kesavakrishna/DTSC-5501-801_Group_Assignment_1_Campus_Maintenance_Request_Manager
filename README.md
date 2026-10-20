@@ -80,6 +80,8 @@ AssertionError: ValueError not raised
 ```
 Appending a second 1011 gave [1004, 1011, 1019, 1011], and findById(1011) returned 1, the first copy.
 
+Fixed: push, append and insertAt now check findById first and raise ValueError; test_duplicate_id_rejected passes for both structures.
+
 ### A test that initially failed: `test_remove_at_beginning`
 
 ```
@@ -93,9 +95,9 @@ It also printed 'That ID # was not found in the array!'
 
 What it revealed: ArrayRequestList.removeAt treated its argument as a
 request ID, not a position. So removeAt(0) looked for a request with
-ID 0, printed a message and returned None. Full output: the last run in test_output.txt.
+ID 0, printed a message and returned None.
 
-Fixed now: removeAt now takes a position, and `test_remove_at_beginning`, `test_remove_in_middle`, `test_remove_at_end` and `test_remove_only_element` all pass.
+Fixed: removeAt now takes a position, and test_remove_at_beginning, test_remove_in_middle, test_remove_at_end and test_remove_only_element all pass.
 
 ### Demonstration
 Our demonstration is `test_project.py`: every required operation has at least one
