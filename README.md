@@ -131,6 +131,8 @@ What it revealed: ArrayRequestList.removeAt treated its argument as a
 request ID, not a position. So removeAt(0) looked for a request with
 ID 0, printed a message and returned None. Full output: the last run in test_output.txt.
 
+Fixed now: removeAt now takes a position, and `test_remove_at_beginning`, `test_remove_in_middle`, `test_remove_at_end` and `test_remove_only_element` all pass.
+
 ### Demonstration
 Our demonstration is `test_project.py`: every required operation has at least one
 successful example there, checked with assertions. Run

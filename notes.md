@@ -4,10 +4,10 @@ Run all tests:   `python -m unittest -v test_project`
 
 | Structure | Tests | Passing | Failing |
 |---|---|---|---|
-| ArrayRequestList | 32 | 19 | 13 |
-| LinkedRequestList | 27 | 26 | 1 |
+| ArrayRequestList | 32 | 23 | 9 |
+| LinkedRequestList | 27 | 27 | 0 |
 | MaintenanceRequest + dataset | 4 | 4 | 0 |
-| **Total** | **63** | **49** | **14** |
+| **Total** | **63** | **54** | **9** |
   
 Run only your own tests while fixing:
 - `python -m unittest -v test_project.ArrayTests`
