@@ -25,7 +25,7 @@ from statistics import median
 
 
 # Let's first go gather all the stuff we need from the other .py files
-from linked_request_list_sort import LinkedRequestList
+from linked_request_list import LinkedRequestList
 from array_request_list import ArrayRequestList
 from maintenance_request import MaintenanceRequest
 
@@ -361,22 +361,27 @@ def make_20000_operations(list_of_MRs, list_of_request_IDs,
     return operations_list
 
 
-def simulation(list_of_MRs, linkedList_or_not,
-               seed_randomseed, operations_list):
+def build_structure(list_of_MRs, linkedList_or_not):
 
-    seed(seed_randomseed)
-    
-    # First make either the Linked List or the Dynamic Array object
+    # Make either the Linked List or the Dynamic Array object and place the
+    #       starting MRs into it. This is kept out of the timed replay: building
+    #       10000 requests is slow (every append checks for a duplicate ID)
+    #       and is not part of the workload.
 
     if linkedList_or_not is True:
         Obj = LinkedRequestList()
     else:
         Obj = ArrayRequestList()
 
-    # Next place those MRs into the list
-
     for MR in list_of_MRs:
         Obj.append(MR)
+
+    return Obj
+
+
+def simulation(Obj, operations_list):
+
+    # Replay the operation sequence on an already-built structure
 
     for operation in operations_list:
         whats_the_job = operation[0]
@@ -404,7 +409,8 @@ def simulation(list_of_MRs, linkedList_or_not,
 
 """
 
-Part 14, Park K analysis...
+Part 14, Part K analysis... (Orion's first notes, written before any benchmark.
+The team's final workload predictions are in the Predictions section at the top of analysis.ipynb.)
 
 
 
@@ -457,7 +463,7 @@ Possibly 1000x faster!
 # report the median of at least 5 runs, and record the final collection size.
 
 
-def the_experiment(num_trials, num_operations):
+def the_experiment(num_trials, num_operations, seed_randomseed=42):
 
     print()
     print()
@@ -467,78 +473,54 @@ def the_experiment(num_trials, num_operations):
     global global_num_operations_yo
     global_num_operations_yo = num_operations
 
-    # Let's do 5 runs at first. See how long it takes
+    # Make the starting MRs and ONE fixed operation sequence from the seed.
+    #       Every run, on both structures, replays this same sequence.
+    list_of_MRs, list_of_request_IDs, time_cursor = make_10000_random_maintenance_requests(
+        seed_randomseed)
+    operations_list = make_20000_operations(list_of_MRs,
+                                            list(list_of_request_IDs),
+                                            time_cursor,
+                                            seed_randomseed)
 
-    linked_list_times = []
-    linked_list_final_num_MRs = []
-    dynamic_array_times = []
-    dynamic_list_final_num_MRs = []
+    op_counts = {}
+    for operation in operations_list:
+        op_counts[operation[0]] = op_counts.get(operation[0], 0) + 1
+    print("Operation counts:", op_counts)
 
-    for i in range(num_trials):
-        
-        seed_randomseed = i
+    results = {}
 
-        # Make the MRs
-        list_of_MRs, list_of_request_IDs, (
-            time_cursor) = make_10000_random_maintenance_requests(
-                seed_randomseed)
+    for name, linkedList_or_not in (("Linked List", True), ("Dynamic Array", False)):
+        times = []
+        final_num_MRs = []
+        for i in range(num_trials):
+            # The replay changes the structure, so build a fresh one every run (not timed)
+            Obj = build_structure(list_of_MRs, linkedList_or_not)
+            start_time = time.perf_counter()
+            simulation(Obj, operations_list)
+            end_time = time.perf_counter()
+            times.append(end_time - start_time)
+            final_num_MRs.append(Obj.count())
 
-        # Make the operations
-        operations_list =  make_20000_operations(list_of_MRs,
-                                                 list_of_request_IDs,
-                                                 time_cursor,
-                                                 seed_randomseed)
-        
-        # Run the operations on the Linked List
-        linked_list_of_MRs = list(list_of_MRs)
-        linked_list_of_request_IDs = list(list_of_request_IDs)
-        linked_time_cursor = int(time_cursor)
-        start_time = time.perf_counter()
-        Obj = simulation(linked_list_of_MRs, True,
-                   seed_randomseed, operations_list)
-        end_time = time.perf_counter()
-        time_it_took = end_time - start_time
-        linked_list_times.append(time_it_took)
+            # Adding a tiny progress bar
+            print(name + ": run " + str(i + 1) + " of " + str(num_trials) + " done")
 
-        count = 0
-        cursor = Obj.head
-
-        while cursor != None:
-            count += 1
-            cursor = cursor.next
-        
-        linked_list_final_num_MRs.append(count)
-
-        # Run the operations on the Dynamic Array
-        dynamic_list_of_MRs = list(list_of_MRs)
-        dynamic_list_of_request_IDs = list(list_of_request_IDs)
-        dynamic_time_cursor = int(time_cursor)
-        start_time = time.perf_counter()
-        Obj = simulation(dynamic_list_of_MRs, False,
-                   seed_randomseed, operations_list)
-        end_time = time.perf_counter()
-        time_it_took = end_time - start_time
-        dynamic_array_times.append(time_it_took)
-        dynamic_list_final_num_MRs.append(Obj.size)
-
-        # Adding a tiny progress bar
-        print((i+1) / num_trials * 100, "% complete")
+        results[name] = {"median_seconds": median(times), "final_sizes": final_num_MRs}
 
     print()
     print()
-    print("We did 5 full simulations of " + str(global_num_operations_yo) + " operations.")
+    print("We did " + str(num_trials) + " runs of the same " + str(num_operations)
+          + " operations on each structure.")
     print("... These were the results:")
-    print()
-    print("The Linked List median runtime was:")
-    print("       " + str(median(linked_list_times)) + " seconds.")
-    print("It resulted in final MR array sizes of:")
-    print(linked_list_final_num_MRs)
-    print()
-    print("The Dynamic Array median runtime was:")
-    print("       " + str(median(dynamic_array_times)) + " seconds.")
-    print("It resulted in final MR array sizes of:")
-    print(dynamic_list_final_num_MRs)
+    for name, result in results.items():
+        print()
+        print("The " + name + " median runtime was:")
+        print("       " + str(result["median_seconds"]) + " seconds.")
+        print("It resulted in final MR array sizes of:")
+        print(result["final_sizes"])
 
-        
-        
-the_experiment(5, 10)
+    results["operation counts"] = op_counts
+    return results
+
+
+if __name__ == "__main__":
+    the_experiment(5, 20000)

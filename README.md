@@ -41,9 +41,11 @@ We used Python 3.13. The notebook also needs pandas and matplotlib.
 - priority is 1 (urgent) to 4 (low) and is not validated.
 - Every new request has status "OPEN".
 - Binary search is only called on an array already in increasing request_id order.
-- "Middle" means index n // 2.
+- "Middle" means index n // 2 in the Part G benchmarks. In the Profile D workload (workload.py), insertAt(middle) and removeAt(middle) use a random position between 20% and 80% of the current size, which is the middle on average.
 
 ## Changes since the design review
+The design review was written alongside the implementation, which our instructor allowed; the differences between it and the final code are listed below.
+
 - Linked list: A boolean check was added to the type index check after it was shown in testing that True was returning 1.
 - Array: removeAt originally removed the request with a given ID; it now removes the request at a given position, as the shared interface requires. An invalid position used to print a message and return None; it now raises IndexError, and a non-integer position raises TypeError. A test can now detect the failure, and no method prints.
 - Array: push, append and insertAt now reject a duplicate request_id with ValueError. The check scans the whole array before inserting, so append is O(n) rather than the O(1) amortized estimated in design_review.md, section 3.

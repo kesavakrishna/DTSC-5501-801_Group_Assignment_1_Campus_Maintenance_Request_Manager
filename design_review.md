@@ -32,7 +32,10 @@ In C you have to remember to delete the old one, but thankfully Python does that
 16, then 32, etc. And whenever it finds itself removing an element and *then* landing on size is a power of 2, it shrinks back
 down by copying itself into a half-as-large-capacity Python list again.
 
-Size must always, of course, be lower than capacity. Both of which must always be non-negative integers.
+Alternatives considered: growing by 1.5× instead of 2× (less wasted space, but more frequent copies), and shrinking only when
+the array is a quarter full instead of at every power of two (avoids repeated grow/shrink copies when the size sits at a power of two).
+
+Size must always be at most capacity (size ≤ capacity), and both must always be non-negative integers.
 Unlike the Linked List version, no special care need be paid to keep track of where the tail is. Python lists can index to [-1] easily.
 
 Since this is a group project, I chose to be fairly verbose with commenting my code. In case anyone else (collaborator or grader) felt
