@@ -29,7 +29,47 @@ We used Python 3.13. The notebook also needs pandas and matplotlib.
 - One shared interface: Both structures have push, append, count, getAt, insertAt, removeAt, findById and __str__ with the same behaviour, so the same tests and benchmarks run on both.
 - Errors: IndexError for an index out of range (getAt/removeAt: 0 ≤ i < n; insertAt: 0 ≤ i ≤ n), TypeError for a non-integer index (including True/False, which Python otherwise treats as 1 and 0), ValueError for a duplicate request_id. Every check happens before anything changes, so a failed call leaves the structure as it was. Methods return results and never print.
 - Not found: findById returns the request's position, or −1 if the ID is not stored. Binary search uses the same convention.
-- Array: _To be added (Orion)._
+
+- Dynamic Array: 
+
+Hi there. Orion here. I did my very best to design the Dynamic Array based on how arrays work in C. This is *quite* different from how
+they work in Python, so it was a little "blocky" and obtuse-feeling to try and port that over to Python. That being said, all I really
+did was construct it as *though* I were in C, and just kinda pretended to myself that the Lists were of completely fixed size.
+
+Like a C array, I let my dynamic array have a capacity of empty slots, only some of which are filled. The array stores both its
+capacity and its size separately. I began it with a capacity of 8, somewhat randomly. Maybe powers of 2 have a certain asthetic appeal.
+When someone tries to fill it with a 9th element, it copies all its data into a NEW Python list but with double the capacity.
+In C you have to remember to delete the old one, but thankfully Python does that automatically. It always doubles in size, 8 then
+16, then 32, etc. And whenever it finds itself removing an element and *then* landing on size is a power of 2, it shrinks back
+down by copying itself into a half-as-large-capacity Python list again.
+
+Size must always, of course, be lower than capacity. Both of which must always be non-negative integers.
+Unlike the Linked List version, no special care need be paid to keep track of where the tail is. Python lists can index to [-1] easily.
+
+Since this is a group project, I chose to be fairly verbose with commenting my code. In case anyone else (collaborator or grader) felt
+the need to read it and follow along for any reason. That was, honestly, the main design choice. Another design choice was when the
+assignment said to insertAt "in the middle", I interpretted this as meaning that it should go kinda randomly somewhere in the interior
+of the list. That we are not to use Push or Append. Not that it should be literally in the middle middle (length // 2).
+
+I think? That most of my operations will be of runtime O(n) due to them having to often shuffle the entire list over by 1.
+These are my predictions:
+push -> O(n) (due to shuffling)
+append -> O(1)
+count -> O(1)
+getAt -> O(1)
+expand -> O(n)
+removeAt -> O(n)
+insertAt -> O(n)
+shrink -> O(n)
+findById_Linear -> O(n)
+findById_Binary -> O(log(n))
+__str__ -> O(n)
+sort_by_priority -> O(n^2) (just like Insert Sort)
+sort_by_reported_time -> O(n log(n)) (just like Merge Sort)
+
+The biggest risk, to me, is that I programmed something badly / dumb that will break but not on my watch! I hope
+if I got anything wrong that it doesn't mess up my partners. Group projects are stressful.
+
 - Linked list: No cached size or tail pointer were used for simplicity. The input is validated through out of bounds checks to ensure the structure remans unchanged after a failed operation. -1 is returned if the ID is not stored. 
 - Sorting: All four sorts are stable: requests with equal keys keep their original order (test_sort_by_priority and test_sort_by_reported_time check this).
 - Records: MaintenanceRequest does no validation; unique IDs are enforced by the structures (see design_review.md, section 1).
