@@ -43,7 +43,7 @@ We used Python 3.13. The notebook also needs pandas and matplotlib.
 - "Middle" means index n // 2.
 
 ## Changes since the design review
-_To be added once the array fixes are in._
+- Linked list: A boolean check was added to the type index check after it was shown in testing that True was returning 1.
 
 ## Testing (Part F)
 
